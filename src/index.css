@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+html {
+  scroll-padding-top: 50px;
+}
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  background: #FFFFFF;
+  color: #000000;
+  scroll-behavior: smooth;
+}
