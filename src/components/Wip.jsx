@@ -16,7 +16,7 @@ const Wip = () => {
   };
 
   return (
-    <section>
+    <section className="select-none">
       <div className="px-6">
         {WIP_CONTENT.map((wip, index) => (
           // framer motion layer
@@ -25,7 +25,7 @@ const Wip = () => {
             <h3 className="text-black">{wip.description}</h3>
 
             <div className="w-full py-4 font-medium">
-              <img src={wip.image} alt="WIP Image" className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105" onClick={() => openViewer(wip.image)} />
+              <img src={wip.image} loading="lazy" alt="WIP Image" className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105" onClick={() => openViewer(wip.image)} />
             </div>
           </div>
         ))}

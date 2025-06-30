@@ -15,9 +15,11 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white select-none">
       <div className=" flex px-8 py-4 mx-auto">
-        <div className="text-2xl font-black flex me-8">NARA</div>
+        <a href="#" onClick={() => setCurrentPage("home")} className="text-2xl font-black flex me-8">
+          NARA
+        </a>
         {/* Desktop Nav */}
         <ul className="hidden md:flex flex-1  justify-center gap-2 md:gap-8 lg:gap-32 xl:gap-52 items-stretch">
           {navItems.map((item) => (
@@ -32,7 +34,7 @@ const Navbar = ({ currentPage, setCurrentPage }) => {
         {/* Mobile Hamburger */}
         <div className="md:hidden flex-1 flex justify-end">
           <button onClick={() => setMenuOpen(!menuOpen)} className="text-black focus:outline-none" aria-label={menuOpen ? "Close Menu" : "Open Menu"}>
-            {menuOpen ? <RiCloseFill className="w-6 h-6 " /> : <RiMenu3Fill className="w-6 h-6" />}
+            {menuOpen ? <RiCloseFill className="w-6 h-6 " /> : <RiMenu3Fill className="w-6 h-6" />}{" "}
           </button>
         </div>
 

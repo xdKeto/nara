@@ -1,36 +1,98 @@
 import { RESUME_CONTENT } from "../constants";
+import { motion } from "framer-motion";
+
+const textVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+};
+
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2 },
+  },
+};
+
+const imageVariants = {
+  hidden: { clipPath: "inset(0 50% 0 50%" },
+  visible: {
+    clipPath: "inset(0 0% 0 0%)",
+    transition: { duration: 1.2, ease: "easeInOut" },
+  },
+};
+
+const iconVariants = {
+  hidden: { opacity: 0, scale: 0 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      delay,
+    },
+  }),
+};
+
+const containerVariants2 = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.3 } },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transisiton: {
+      duration: 0.8,
+      ease: "easeOut",
+    },
+  },
+};
 
 const Resume = () => {
   return (
-    <section className="px-6">
-      <div className="relative z-10 flex flex-col-reverse md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4">
-        <div className="w-full md:w-1/2 py-4 px-8 justify-items-center md:justify-items-end">
-          <img src={RESUME_CONTENT.image} alt="Contact Image" className="rounded-xl w-[250px] h-[250px] object-cover max-w-full aspect-square" />
-        </div>
+    <section className="px-6 select-none">
+      <motion.div initial="hidden" animate="visible" variants={containerVariants} className="will-change-transform relative z-10 flex flex-col-reverse md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4">
+        <motion.div initial="hidden" animate="visible" variants={imageVariants} className="w-full md:w-1/2 py-4 px-8 justify-items-center md:justify-items-end">
+          <img src={RESUME_CONTENT.image} loading="lazy" alt="Contact Image" className="rounded-xl w-[250px] h-[250px] object-cover max-w-full aspect-square" />
+        </motion.div>
         <div className="w-full md:w-1/2 py-4 ">
-          <h1 className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">{RESUME_CONTENT.name}</h1>
-          <h3 className="text-black font-semibold text-md md:text-lg my-2 md:my-4">{RESUME_CONTENT.role}</h3>
-          <h3 className="text-black font-semibold text-md md:text-lg my-2 md:my-4">{RESUME_CONTENT.city}</h3>
+          <motion.h1 initial="hidden" animate="visible" variants={textVariants} className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">
+            {RESUME_CONTENT.name}
+          </motion.h1>
+          <motion.h3 initial="hidden" animate="visible" variants={textVariants} className="text-black font-semibold text-md md:text-lg my-2 md:my-4">
+            {RESUME_CONTENT.role}
+          </motion.h3>
+          <motion.h3 initial="hidden" animate="visible" variants={textVariants} className="text-black font-semibold text-md md:text-lg my-2 md:my-4">
+            {RESUME_CONTENT.city}
+          </motion.h3>
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mb-6 md:mb-8">
+      <motion.div initial="hidden" animate="visible" variants={textVariants} className="will-change-transform mb-6 md:mb-8">
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">SKILLS</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
         <div className="flex flex-wrap gap-3 pb-2">
           {RESUME_CONTENT.skills.map((skill, idx) => (
-            <span
+            <motion.span
+              initial="hidden"
+              animate="visible"
+              variants={iconVariants}
+              custom={1.0 + idx * 0.2}
               key={idx}
-              className="whitespace-nowrap bg-gray-300 shadow-md
+              className="will-change-transform whitespace-nowrap bg-gray-300 shadow-md
              text-black font-semibold px-4 py-2 rounded-full text-sm "
             >
               {skill}
-            </span>
+            </motion.span>
           ))}
         </div>
-      </div>
+      </motion.div>
 
-      <div className="mb-6 md:mb-8">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">SOFTWARE</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
         <div className="flex flex-wrap gap-3 pb-2">
@@ -202,15 +264,16 @@ const Resume = () => {
             </svg>
           </div>
         </div>
-      </div>
-      <div className="mb-6 md:mb-8">
+      </motion.div>
+
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">EXPERIENCE</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
 
-        <div className="space-y-10">
+        <motion.div className="will-change-transform space-y-10" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={containerVariants2}>
           {RESUME_CONTENT.experience.map((exp, index) => (
             // framer motion layer
-            <div className="">
+            <motion.div key={index} variants={childVariants} className="will-change-transform">
               <div className="flex flex-col md:flex-row md: justify-between">
                 <div className="text-sm font-semibold md:w-1/4 mb-2 md:mb-0 p-4">{exp.year_range}</div>
                 <div className="md:w-3/4 mb-10">
@@ -226,10 +289,10 @@ const Resume = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

@@ -28,10 +28,10 @@ function App() {
   return (
     <>
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden max-w-5xl mx-auto relative z-10 justify-items-center">
-        <BodyComponent />
-      </div>
-      <Footer />
+        <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden max-w-5xl mx-auto relative z-10 justify-items-center">
+            <BodyComponent />
+        </div>
+        <Footer />
     </>
   );
 }
