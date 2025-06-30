@@ -1,6 +1,7 @@
 // HOME IMAGES
 
 // RESUME IMAGES
+import resume_image from "../assets/resume_image.png";
 
 // CONTACT IMAGES
 import contact_image from "../assets/contact_image.png";
@@ -19,8 +20,8 @@ export const RESUME_CONTENT = {
   name: "NARASATYA JOY W.",
   role: "Junior 3d artist",
   city: "Surabaya, Indonesia",
-  image: "",
-  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Printing", "3D Scanning"],
+  image: resume_image,
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Animation", "Yapping", "Turu", "BedMaxxing", "IGReelsMaxxing", "JobMaxxing"],
   experience: [
     {
       year_range: "Aug 2024 - Feb 2025",
@@ -33,7 +34,7 @@ export const RESUME_CONTENT = {
 
 export const CONTACT_CONTENT = {
   headline: "CONTACT ME",
-  email: "narasatya2004@gmail.com",
+  email: "narasatyajoy2004@gmail.com",
   image: contact_image,
   social_links: [
     {
