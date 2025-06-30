@@ -41,7 +41,7 @@ export const RESUME_CONTENT = {
 
 export const CONTACT_CONTENT = {
   headline: "CONTACT ME",
-  email: "narasatyajoy2004@gmail.com",
+  email: "narasatya2004@gmail.com",
   image: contact_image,
   social_links: [
     {
