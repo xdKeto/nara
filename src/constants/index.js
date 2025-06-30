@@ -1,55 +1,68 @@
+// HOME IMAGES
+
+// RESUME IMAGES
+
+// CONTACT IMAGES
+import contact_image from "../assets/contact_image.png";
+
+// WIP IMAGES
+
 export const HOME_CONTENT = {
-    name: "NARASTYA",
-    role: "Junior 3d artist",
-    description: "@narasatyaaa"
-}
+  name: "NARASTYA",
+  role: "Junior 3d artist",
+  description: "@narasatyaaa",
+  wideImage: [],
+  squareImage: [],
+};
 
 export const RESUME_CONTENT = {
-    name: "NARASATYA JOY W.",
-    role: "Junior 3d artist",
-    city: "Surabaya, Indonesia",
-    skills: [
-        "3D Modeling",
-        "3D Rendering",
-        "3D Animation",
-        "3D Printing",
-        "3D Scanning",
-    ],
-    experience: [
-        {
-            year_range: "Aug 2024 - Feb 2025",
-            title: "Junior Artist at Sireishi Production",
-            location: "Malang, Indonesia",
-            description: [
-                "turu",
-                "turu",
-                "turu",
-                "turu",
-            ]
-        }
-    ]
-}
+  name: "NARASATYA JOY W.",
+  role: "Junior 3d artist",
+  city: "Surabaya, Indonesia",
+  image: "",
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Printing", "3D Scanning"],
+  experience: [
+    {
+      year_range: "Aug 2024 - Feb 2025",
+      title: "Junior Artist at Sireishi Production",
+      location: "Malang, Indonesia",
+      description: ["turu", "turu", "turu", "turu"],
+    },
+  ],
+};
 
 export const CONTACT_CONTENT = {
-    headline: "CONTACT ME",
-    email: "e12210161@john.petra.ac.id",
-    social_links: [
-        {
-            platform: "Instagram",
-            link: "https://www.instagram.com/narasatyaaa",
-            icon: "fa-instagram"
-        },
-        {
-            platform: "Twitter",
-            link: "https://x.com/Aranjnara04",
-            icon: "fa-x-twitter"
-        },
-        {
-            platform: "LinkedIn",
-            link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
-            icon: "fa-linkedin"
-        }
-    ]
-}
+  headline: "CONTACT ME",
+  email: "narasatya2004@gmail.com",
+  image: contact_image,
+  social_links: [
+    {
+      platform: "Instagram",
+      link: "https://www.instagram.com/narasatyaaa",
+      icon: "fa-instagram",
+      aria_label: "Contact me on Insta!",
+    },
+    {
+      platform: "Twitter",
+      link: "https://x.com/Aranjnara04",
+      icon: "fa-x-twitter",
+      aria_label: "Contact me on Twitter!",
+    },
+    {
+      platform: "LinkedIn",
+      link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
+      icon: "fa-linkedin",
+      aria_label: "Contact me on LinkedIn!",
+    },
+  ],
+};
 
-export const FOOTER_CONTENT = `© ${new Date().getFullYear()} Narasatya Joy W. All rights reserved.`
+export const WIP_CONTENT = [
+  {
+    title: "WIP 1",
+    description: "Ferrari",
+    photo: "",
+  },
+];
+
+export const FOOTER_CONTENT = `© ${new Date().getFullYear()} Narasatya Joy W. All rights reserved.`;

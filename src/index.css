@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+/* * {
+  border: solid;
+} */
+
 html {
   scroll-padding-top: 50px;
 }
