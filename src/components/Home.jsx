@@ -29,7 +29,7 @@ const Home = () => {
       </div>
 
       <div className="mx-auto space-y-4 max-w-5xl px-4">
-        <img src={HOME_CONTENT.wideImage[0]} alt="" className="object-cover w-full rounded-xl h-[380px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.wideImage[0])} />
+        <img src={HOME_CONTENT.wideImage[0]} alt="" className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.wideImage[0])} />
 
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
@@ -54,7 +54,7 @@ const Home = () => {
           <img
             src={currentImage}
             alt="Full View"
-            className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+            className="max-w-full max-h-[86vh] rounded-lg shadow-lg"
             onClick={(e) => e.stopPropagation()} 
           />
           <button className="absolute top-6 right-8 text-black text-3xl font-bold" onClick={closeViewer}>

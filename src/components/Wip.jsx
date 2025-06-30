@@ -25,7 +25,7 @@ const Wip = () => {
             <h3 className="text-black">{wip.description}</h3>
 
             <div className="w-full py-4 font-medium">
-              <img src={wip.image} alt="WIP Image" className="rounded-xl w-full h-auto md:w-[650px] cursor-pointer will-change-transform transition-transform hover:scale-105" onClick={() => openViewer(wip.image)} />
+              <img src={wip.image} alt="WIP Image" className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105" onClick={() => openViewer(wip.image)} />
             </div>
           </div>
         ))}
@@ -37,7 +37,7 @@ const Wip = () => {
           <img
             src={currentImage}
             alt="Full View"
-            className="max-w-full max-h-[90vh] rounded-lg shadow-lg"
+            className="max-w-full max-h-[86vh] rounded-lg shadow-lg"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
           />
           <button className="absolute top-6 right-8 text-black text-3xl font-bold" onClick={closeViewer}>
