@@ -7,6 +7,8 @@ import resume_image from "../assets/resume_image.png";
 import contact_image from "../assets/contact_image.png";
 
 // WIP IMAGES
+import wip1 from "../assets/wip1.png"
+import wip2 from "../assets/wip2.png"
 
 export const HOME_CONTENT = {
   name: "NARASTYA",
@@ -61,8 +63,13 @@ export const CONTACT_CONTENT = {
 export const WIP_CONTENT = [
   {
     title: "WIP 1",
-    description: "Ferrari",
-    photo: "",
+    description: "Mercedes AMG black series",
+    photo: wip1,
+  },
+  {
+    title: "WIP 2",
+    description: "Ferrari F80",
+    photo: wip2,
   },
 ];
 
