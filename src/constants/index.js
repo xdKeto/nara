@@ -1,4 +1,8 @@
 // HOME IMAGES
+import wide_image1 from "../assets/wide_image1.png";
+import wide_image2 from "../assets/wide_image2.png";
+import wide_image3 from "../assets/wide_image3.png";
+import small_image2 from "../assets/small_image2.png";
 
 // RESUME IMAGES
 import resume_image from "../assets/resume_image.png";
@@ -7,15 +11,16 @@ import resume_image from "../assets/resume_image.png";
 import contact_image from "../assets/contact_image.png";
 
 // WIP IMAGES
-import wip1 from "../assets/wip1.png"
-import wip2 from "../assets/wip2.png"
+import wip1 from "../assets/wip1.png";
+import wip2 from "../assets/wip2.png";
 
 export const HOME_CONTENT = {
-  name: "NARASTYA",
+  name: "NARASATYA",
   role: "Junior 3d artist",
   description: "@narasatyaaa",
-  wideImage: [],
-  squareImage: [],
+  link: "https://www.instagram.com/narasatyaaa",
+  wideImage: [wide_image1, wide_image2, wide_image3],
+  squareImage: [small_image2],
 };
 
 export const RESUME_CONTENT = {
@@ -64,12 +69,12 @@ export const WIP_CONTENT = [
   {
     title: "WIP 1",
     description: "Mercedes AMG black series",
-    photo: wip1,
+    image: wip1,
   },
   {
     title: "WIP 2",
     description: "Ferrari F80",
-    photo: wip2,
+    image: wip2,
   },
 ];
 

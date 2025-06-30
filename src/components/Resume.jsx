@@ -3,9 +3,9 @@ import { RESUME_CONTENT } from "../constants";
 const Resume = () => {
   return (
     <section className="px-6">
-      <div className="relative z-10 flex flex-col-reverse md:flex-row text-white md:mt-6 space-y-4 md:space-y-0 mb-4">
+      <div className="relative z-10 flex flex-col-reverse md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4">
         <div className="w-full md:w-1/2 py-4 px-8 justify-items-center md:justify-items-end">
-          <img src={RESUME_CONTENT.image} alt="Contact Image" className="rounded-xl h-auto w-[250px]" />
+          <img src={RESUME_CONTENT.image} alt="Contact Image" className="rounded-xl w-[250px] h-[250px] object-cover max-w-full aspect-square" />
         </div>
         <div className="w-full md:w-1/2 py-4 ">
           <h1 className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">{RESUME_CONTENT.name}</h1>
@@ -202,33 +202,32 @@ const Resume = () => {
             </svg>
           </div>
         </div>
+      </div>
+      <div className="mb-6 md:mb-8">
+        <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">EXPERIENCE</h1>
+        <div className="h-1 w-32 mb-4 bg-black"></div>
 
-        <div className="mb-6 md:mb-8 mt-4">
-          <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">EXPERIENCE</h1>
-          <div className="h-1 w-32 mb-4 bg-black"></div>
-
-          <div className="space-y-10">
-            {RESUME_CONTENT.experience.map((exp, index) => (
-              // framer motion layer
-              <div className="">
-                <div className="flex flex-col md:flex-row md: justify-between">
-                  <div className="text-sm font-semibold md:w-1/4 mb-2 md:mb-0 p-4">{exp.year_range}</div>
-                  <div className="md:w-3/4 mb-10">
-                    <div className="max-w-3xl backdrop-blur-3xl p-4 bg-gray-100 rounded-lg">
-                      <h2 className="text-xl mb-2 font-semibold "> {exp.title}</h2>
-                      <p className="mb-4 text-sm italic">{exp.location}</p>
-                      <ul className="list-disc list-inside space-y-2">
-                        {" "}
-                        {exp.description.map((desc, index) => (
-                          <li key={index}>{desc}</li>
-                        ))}
-                      </ul>
-                    </div>
+        <div className="space-y-10">
+          {RESUME_CONTENT.experience.map((exp, index) => (
+            // framer motion layer
+            <div className="">
+              <div className="flex flex-col md:flex-row md: justify-between">
+                <div className="text-sm font-semibold md:w-1/4 mb-2 md:mb-0 p-4">{exp.year_range}</div>
+                <div className="md:w-3/4 mb-10">
+                  <div className="max-w-3xl backdrop-blur-3xl p-4 bg-gray-100 rounded-lg">
+                    <h2 className="text-xl mb-2 font-semibold "> {exp.title}</h2>
+                    <p className="mb-4 text-sm italic">{exp.location}</p>
+                    <ul className="list-disc list-inside space-y-2">
+                      {" "}
+                      {exp.description.map((desc, index) => (
+                        <li key={index}>{desc}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

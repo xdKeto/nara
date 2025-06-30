@@ -13,7 +13,7 @@ const Contact = () => {
     <section className="px-6">
       <div className="relative z-10 flex flex-col-reverse md:flex-row text-white md:mt-6 space-y-4 md:space-y-0">
         <div className="w-full md:w-1/2 py-4">
-          <img src={CONTACT_CONTENT.image} alt="Contact Image" className="rounded-xl w-full h-auto md:w-[350px]" />
+          <img src={CONTACT_CONTENT.image} alt="Contact Image" className="rounded-xl w-[350px] h-[250px] object-cover max-w-full aspect-square" />
         </div>
         <div className="w-full md:w-1/2 py-4 px-8 ">
           <h1 className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">{CONTACT_CONTENT.headline}</h1>
