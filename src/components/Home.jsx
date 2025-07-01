@@ -55,7 +55,7 @@ const Home = () => {
 
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
-            <img src={HOME_CONTENT.squareImage} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.squareImage[0])} />
+            <img src={HOME_CONTENT.squareImage[0]} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.squareImage[0])} />
           </div>
           <div className="col-span-8">
             <img src={HOME_CONTENT.wideImage[1]} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.wideImage[1])} />
@@ -65,7 +65,7 @@ const Home = () => {
             <img src={HOME_CONTENT.wideImage[2]} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.wideImage[2])} />
           </div>
           <div className="col-span-4">
-            <img src={HOME_CONTENT.squareImage} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.squareImage[1])} />
+            <img src={HOME_CONTENT.squareImage[1]} loading="lazy" alt="" className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform" onClick={() => openViewer(HOME_CONTENT.squareImage[1])} />
           </div>
         </div>
       </div>
