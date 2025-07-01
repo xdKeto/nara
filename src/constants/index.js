@@ -2,6 +2,7 @@
 import wide_image1 from "../assets/wide_image1.png";
 import wide_image2 from "../assets/wide_image2.png";
 import wide_image3 from "../assets/wide_image3.png";
+import small_image1 from "../assets/small_image1.png";
 import small_image2 from "../assets/small_image2.png";
 
 // RESUME IMAGES
@@ -20,7 +21,7 @@ export const HOME_CONTENT = {
   description: "@narasatyaaa",
   link: "https://www.instagram.com/narasatyaaa",
   wideImage: [wide_image1, wide_image2, wide_image3],
-  squareImage: [small_image2],
+  squareImage: [small_image1,small_image2],
 };
 
 export const RESUME_CONTENT = {
@@ -67,12 +68,10 @@ export const CONTACT_CONTENT = {
 
 export const WIP_CONTENT = [
   {
-    title: "WIP 1",
     description: "Mercedes AMG black series",
     image: wip1,
   },
   {
-    title: "WIP 2",
     description: "Ferrari F80",
     image: wip2,
   },

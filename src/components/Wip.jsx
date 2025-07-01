@@ -21,7 +21,7 @@ const Wip = () => {
         {WIP_CONTENT.map((wip, index) => (
           // framer motion layer
           <div key={index} className="mb-4">
-            <h1 className="text-black my-2 font-semibold">{wip.title}</h1>
+            <h1 className="text-black my-2 font-semibold">WIP {index+1}</h1>
             <h3 className="text-black">{wip.description}</h3>
 
             <div className="w-full py-4 font-medium">

@@ -45,7 +45,7 @@ const childVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transisiton: {
+    transition: {
       duration: 0.8,
       ease: "easeOut",
     },
@@ -104,15 +104,15 @@ const Resume = () => {
               viewBox="0 0 256.00 256.00"
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
               preserveAspectRatio="xMidYMid"
               fill="#000000"
               stroke="#000000"
-              stroke-width="0.00256"
+              strokeWidth="0.00256"
             >
-              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
               <g id="SVGRepo_iconCarrier">
                 {" "}
@@ -142,10 +142,10 @@ const Resume = () => {
           </div>
           {/* zbrush */}
           <div className="px-2 flex-w-1/5 max-w-[120px]:">
-            <svg fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve">
-              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+            <svg fill="#000000" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="64px" height="64px" viewBox="0 0 512 512" enableBackground="new 0 0 512 512" xmlSpace="preserve">
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
               <g id="SVGRepo_iconCarrier">
                 {" "}
@@ -164,9 +164,9 @@ const Resume = () => {
           {/* autodesk */}
           <div className="px-2 flex-w-1/5 max-w-[120px]:">
             <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
               <g id="SVGRepo_iconCarrier">
                 {" "}
@@ -186,15 +186,15 @@ const Resume = () => {
                   {" "}
                   <linearGradient id="paint0_linear_87_7311" x1="14.0496" y1="3.48412" x2="16.3686" y2="9.14699" gradientUnits="userSpaceOnUse">
                     {" "}
-                    <stop stop-color="#29A5E3" /> <stop offset="0.515" stop-color="#356EB9" /> <stop offset="1" stop-color="#394DA5" />{" "}
+                    <stop stopColor="#29A5E3" /> <stop offset="0.515" stopColor="#356EB9" /> <stop offset="1" stopColor="#394DA5" />{" "}
                   </linearGradient>{" "}
                   <linearGradient id="paint1_linear_87_7311" x1="12.3865" y1="5.14659" x2="10.8085" y2="8.94698" gradientUnits="userSpaceOnUse">
                     {" "}
-                    <stop stop-color="#236736" /> <stop offset="0.493" stop-color="#6BA443" /> <stop offset="1" stop-color="#86C146" />{" "}
+                    <stop stopColor="#236736" /> <stop offset="0.493" stopColor="#6BA443" /> <stop offset="1" stopColor="#86C146" />{" "}
                   </linearGradient>{" "}
                   <linearGradient id="paint2_linear_87_7311" x1="4.173" y1="25.0605" x2="7.4853" y2="24.3837" gradientUnits="userSpaceOnUse">
                     {" "}
-                    <stop stop-color="#2B7A77" /> <stop offset="0.51" stop-color="#4EBAA9" /> <stop offset="1" stop-color="#5CC2B1" />{" "}
+                    <stop stopColor="#2B7A77" /> <stop offset="0.51" stopColor="#4EBAA9" /> <stop offset="1" stopColor="#5CC2B1" />{" "}
                   </linearGradient>{" "}
                 </defs>{" "}
               </g>
@@ -203,9 +203,9 @@ const Resume = () => {
           {/* Photoshop */}
           <div className="px-2 flex-w-1/5 max-w-[120px]:">
             <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
               <g id="SVGRepo_iconCarrier">
                 {" "}
@@ -242,9 +242,9 @@ const Resume = () => {
           </div>
           <div className=" px-2 flex-w-1/5 max-w-[120px]">
             <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" stroke-width="0" />
+              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
 
-              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
 
               <g id="SVGRepo_iconCarrier">
                 {" "}
