@@ -14,6 +14,7 @@ import contact_image from "../assets/contact_image.png";
 // WIP IMAGES
 import wip1 from "../assets/wip1.png";
 import wip2 from "../assets/wip2.png";
+import wip3 from "../assets/wip3.png";
 
 export const HOME_CONTENT = {
   name: "NARASATYA",
@@ -74,6 +75,10 @@ export const WIP_CONTENT = [
   {
     description: "Ferrari F80",
     image: wip2,
+  },
+   {
+    description: "MERAH",
+    image: wip3,
   },
 ];
 
