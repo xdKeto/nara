@@ -76,7 +76,7 @@ const Home = () => {
           <img
             src={currentImage}
             alt="Full View"
-            className="max-w-full max-h-[86vh] rounded-lg shadow-lg"
+            className="max-w-full max-h-[86vh] rounded-lg shadow-lg mt-8"
             onClick={(e) => e.stopPropagation()} 
           />
           <button className="absolute top-6 right-8 text-black text-3xl font-bold" onClick={closeViewer}>
