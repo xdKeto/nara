@@ -68,18 +68,19 @@ export const CONTACT_CONTENT = {
 };
 
 export const WIP_CONTENT = [
-  {
-    description: "Mercedes AMG black series",
-    image: wip1,
+   {
+    description: "MERAH",
+    image: wip3,
   },
   {
     description: "Ferrari F80",
     image: wip2,
   },
    {
-    description: "MERAH",
-    image: wip3,
+    description: "Mercedes AMG black series",
+    image: wip1,
   },
+  
 ];
 
 export const FOOTER_CONTENT = `© ${new Date().getFullYear()} Narasatya Joy W. All rights reserved.`;
