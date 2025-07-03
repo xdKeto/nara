@@ -37,7 +37,7 @@ const Wip = () => {
           <img
             src={currentImage}
             alt="Full View"
-            className="max-w-full max-h-[86vh] rounded-lg shadow-lg"
+            className="max-w-full max-h-[86vh] rounded-lg shadow-lg mt-8"
             onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image
           />
           <button className="absolute top-6 right-8 text-black text-3xl font-bold" onClick={closeViewer}>
