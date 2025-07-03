@@ -29,7 +29,7 @@ export const RESUME_CONTENT = {
   role: "Junior 3d artist",
   city: "Surabaya, Indonesia",
   image: resume_image,
-  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Animation", "Yapping", "Turu", "BedMaxxing", "IGReelsMaxxing", "JobMaxxing"],
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Animation", "Yapping", "Turu", "BedMaxxing", "IGReelsMaxxing", "JobMaxxing", "Ngentot"],
   experience: [
     {
       year_range: "Aug 2024 - Feb 2025",
