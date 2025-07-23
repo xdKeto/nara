@@ -1,9 +1,9 @@
 // HOME IMAGES
-import wide_image1 from "../assets/wide_image1.png";
-import wide_image2 from "../assets/wide_image2.png";
-import wide_image3 from "../assets/wide_image3.png";
-import small_image1 from "../assets/small_image1.png";
-import small_image2 from "../assets/small_image2.png";
+import showroom_image from "../assets/showroom.png";
+import all_cars from "../assets/all_cars.png";
+import white_char from "../assets/white_char.png";
+import blue_car from "../assets/blue_car.png";
+import glock from "../assets/glock.png";
 
 // RESUME IMAGES
 import resume_image from "../assets/resume_image.png";
@@ -21,8 +21,43 @@ export const HOME_CONTENT = {
   role: "Junior 3d artist",
   description: "@narasatyaaa",
   link: "https://www.instagram.com/narasatyaaa",
-  wideImage: [wide_image1, wide_image2, wide_image3],
-  squareImage: [small_image1,small_image2],
+  images: [
+    {
+      mainImage: showroom_image,
+      title: "All of Em",
+      description: "lorem ipsum",
+      madeIn: "Made in Blender",
+      carousel: [wip1, wip2, wip3, wip1],
+    },
+    {
+      mainImage: white_char,
+      title: "Girl",
+      description: "lorem ipsum",
+      madeIn: "Made in Blender",
+      carousel: [wip3, wip2],
+    },
+    {
+      mainImage: all_cars,
+      title: "All of Em",
+      description: "lorem ipsum",
+      madeIn: "Made in Blender",
+      carousel: [wip2, wip2],
+    },
+    {
+      mainImage: blue_car,
+      title: "All of Em",
+      description: "lorem ipsum",
+      madeIn: "Made in Blender",
+      carousel: [wip3, wip2],
+    },
+    {
+      mainImage: glock,
+      title: "Glock 19",
+      description: "lorem ipsum",
+      madeIn: "Made in Blender",
+      carousel: [wip1, wip2],
+    },
+  ],
 };
 
 export const RESUME_CONTENT = {
@@ -68,7 +103,7 @@ export const CONTACT_CONTENT = {
 };
 
 export const WIP_CONTENT = [
-   {
+  {
     description: "MERAH",
     image: wip3,
   },
@@ -76,11 +111,10 @@ export const WIP_CONTENT = [
     description: "Ferrari F80",
     image: wip2,
   },
-   {
+  {
     description: "Mercedes AMG black series",
     image: wip1,
   },
-  
 ];
 
 export const FOOTER_CONTENT = `© ${new Date().getFullYear()} Narasatya Joy W. All rights reserved.`;
