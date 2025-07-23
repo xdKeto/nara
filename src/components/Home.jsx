@@ -159,30 +159,31 @@ const Home = () => {
             <h1 className="text-white text-xl font-semibold"> {selectedItem.description} </h1>
             <h1 className="text-white text-xl font-medium"> {selectedItem.madeIn} </h1>
           </div>
-          <div className="relative w-full md:w-1/2 flex items-center justify-center ">
-            <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-[90vw] max-h-[70vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
-
-            {/* Thumbnails for desktop */}
-            <div className="absolute mt-80 sm:mt-90 md:mt-120 hidden md:flex md:flex-row md:space-x-2">
-              {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
-                <img
-                  key={index}
-                  src={thumb}
-                  alt={`Thumbnail ${index + 1}`}
-                  className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setActiveImageIndex(index);
-                  }}
-                />
-              ))}
+          <div className="relative w-full md:w-1/2 flex md:mt-8 ">
+            <div className="flex flex-col items-center ">
+              <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-[90vw] max-h-[70vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
+              {/* Thumbnails for desktop */}
+              <div className="hidden md:flex md:flex-row md:space-x-2">
+                {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
+                  <img
+                    key={index}
+                    src={thumb}
+                    alt={`Thumbnail ${index + 1}`}
+                    className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveImageIndex(index);
+                    }}
+                  />
+                ))}
+              </div>
             </div>
 
             {/* Arrow buttons for mobile */}
-            <button onClick={prevImage} className="absolute left-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl font-bold">
+            <button onClick={prevImage} className="absolute left-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl sm:text-7xl font-bold">
               &#8249;
             </button>
-            <button onClick={nextImage} className="absolute right-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl font-bold">
+            <button onClick={nextImage} className="absolute right-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl sm:text-7xl font-bold">
               &#8250;
             </button>
 
