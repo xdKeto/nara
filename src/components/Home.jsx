@@ -153,15 +153,15 @@ const Home = () => {
 
       {/* Modal Photo Viewer */}
       {viewerOpen && selectedItem && (
-        <div className="fixed inset-0 bg-black/95 flex flex-col md:flex-row items-center justify-center z-50 p-8" onClick={closeViewer}>
-          <div className="w-full md:w-1/8">
-            <h1 className="text-white text-xl font-bold"> {selectedItem.title} </h1>
-            <h1 className="text-white text-xl font-semibold"> {selectedItem.description} </h1>
-            <h1 className="text-white text-xl font-medium"> {selectedItem.madeIn} </h1>
+        <div className="fixed inset-0 bg-black/95 flex flex-col md:flex-row items-center justify-start pt-32 md:pt-0 md:justify-center z-50 p-4 md:p-16 gap-6" onClick={closeViewer}>
+          <div className="w-full md:w-3/8 md:py-8 ">
+            <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
+            <h1 className="text-white text-sm md:text-xl font-semibold"> {selectedItem.description} </h1>
+            <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
           </div>
-          <div className="relative w-full md:w-1/2 flex md:mt-8 ">
+          <div className="relative w-full md:w-1/2 flex mt-2 md:mt-8 ">
             <div className="flex flex-col items-center ">
-              <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-[90vw] max-h-[70vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
+              <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-full max-h-[76vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
               {/* Thumbnails for desktop */}
               <div className="hidden md:flex md:flex-row md:space-x-2">
                 {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
@@ -169,7 +169,7 @@ const Home = () => {
                     key={index}
                     src={thumb}
                     alt={`Thumbnail ${index + 1}`}
-                    className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                    className={`w-16 h-8 xl:w-32 md:h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       setActiveImageIndex(index);

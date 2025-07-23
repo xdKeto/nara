@@ -85,7 +85,7 @@ const Contact = () => {
                   aria-label={link.aria_label}
                   className="text-black will-change-transform"
                 >
-                  <Icon size={36} />
+                  <Icon size={40} />
                 </motion.a>
               );
             })}
