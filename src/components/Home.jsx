@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { HOME_CONTENT } from "../constants";
 import { motion } from "framer-motion";
+import HomeSkeleton from "./HomeSkeleton";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -26,6 +27,23 @@ const imageVariants = {
 const Home = () => {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const images = [...HOME_CONTENT.wideImage, ...HOME_CONTENT.squareImage];
+    const promises = images.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
+
+    Promise.all(promises).then(() => {
+      setLoading(false);
+    });
+  }, []);
 
   const openViewer = (img) => {
     setCurrentImage(img);
@@ -36,6 +54,10 @@ const Home = () => {
     setViewerOpen(false);
     setCurrentImage(null);
   };
+
+  if (loading) {
+    return <HomeSkeleton />;
+  }
 
   return (
     <section className="px-6 select-none">
