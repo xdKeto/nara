@@ -1,6 +1,6 @@
 const HomeSkeleton = () => {
   return (
-    <div className="px-6 select-none animate-pulse">
+    <div className="px-2 select-none animate-pulse">
       <div className="relative z-10 flex flex-col md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4 md:ms-4">
         <div className="w-full md:w-2/7 lg:w-1/5 py-4 justify-items-center md:justify-items-start space-y-2">
           <div className="h-6 bg-gray-300 rounded w-3/4"></div>
@@ -12,7 +12,7 @@ const HomeSkeleton = () => {
         </div>
       </div>
 
-      <div className="mx-auto space-y-4 max-w-5xl px-4">
+      <div className="mx-auto space-y-4 max-w-5xl px-2">
         <div className="bg-gray-300 rounded-xl w-full h-[400px]"></div>
 
         <div className="grid grid-cols-12 gap-4">
