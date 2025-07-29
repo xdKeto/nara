@@ -154,7 +154,7 @@ const Home = () => {
       {/* Modal Photo Viewer */}
       {viewerOpen && selectedItem && (
         <div className="fixed inset-0 bg-black/95 flex flex-col md:flex-row items-center justify-start pt-32 md:pt-0 md:justify-center z-50 p-4 md:p-16 gap-8 lg:gap-16" onClick={closeViewer}>
-          <div className="w-full lg:w-3/8 md:py-8 ">
+          <div className="w-full lg:w-3/8 md:py-8 md:pe-32">
             <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
             <h1 className="text-white text-sm md:text-xl font-semibold"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
