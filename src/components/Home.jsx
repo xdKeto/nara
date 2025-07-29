@@ -159,37 +159,33 @@ const Home = () => {
             <h1 className="text-white text-sm md:text-xl font-semibold"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
           </div>
-          <div className="relative w-full md:w-1/2 flex mt-2 md:mt-8 ">
-            <div className="flex flex-col items-center ">
-              <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className=" max-w-full max-h-[56vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
-              {/* Thumbnails for desktop */}
-              <div className="hidden md:flex md:flex-row md:space-x-2">
-                {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
-                  <img
-                    key={index}
-                    src={thumb}
-                    alt={`Thumbnail ${index + 1}`}
-                    className={`w-16 h-8 xl:w-32 md:h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveImageIndex(index);
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            {/* Arrow buttons for mobile */}
-            <button onClick={prevImage} className="absolute left-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl sm:text-7xl font-bold">
+          <div className="relative w-full md:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
+            <button onClick={prevImage} className="absolute left-0 z-10 bg-black/50 text-white py-2 lg:py-12 px-2 rounded-lg text-4xl sm:text-7xl font-bold">
               &#8249;
             </button>
-            <button onClick={nextImage} className="absolute right-[-1rem] bottom-2 top-1/2 -translate-y-1/2 md:hidden bg-black/50 text-white p-2 rounded-lg text-4xl sm:text-7xl font-bold">
+            <div className="relative">
+              <div className="flex flex-col items-center ">
+                <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-full max-h-[56vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
+                {/* Thumbnails for desktop */}
+                <div className="hidden md:flex md:flex-row md:space-x-2 mt-2">
+                  {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
+                    <img
+                      key={index}
+                      src={thumb}
+                      alt={`Thumbnail ${index + 1}`}
+                      className={`w-16 h-8 xl:w-32 md:h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setActiveImageIndex(index);
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <button onClick={nextImage} className="absolute right-0 z-10 bg-black/50 text-white py-2 lg:py-12 px-2  rounded-lg text-4xl sm:text-7xl font-bold">
               &#8250;
             </button>
-
-            {/* <button className="absolute top-7 left-1 text-white text-4xl font-bold" onClick={closeViewer}>
-              &times;
-            </button> */}
           </div>
         </div>
       )}
