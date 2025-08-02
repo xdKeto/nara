@@ -99,8 +99,7 @@ export const HOME_CONTENT = {
     {
       mainImage: lowpoly1,
       title: "3d Lowpoly vehicles",
-      description: "Simplistic version of the vehicles still maintaining the blocky forms, low poly versions of the real life cars
- ",
+      description: "Simplistic version of the vehicles still maintaining the blocky forms, low poly versions of the real life cars",
       madeIn: "Made in Blender",
       carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5, lowpoly6],
     },
