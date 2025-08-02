@@ -1,10 +1,4 @@
 // HOME IMAGES
-import showroom_image from "../assets/showroom.png";
-import all_cars from "../assets/all_cars.png";
-import white_char from "../assets/white_char.png";
-import blue_car from "../assets/blue_car.png";
-import glock from "../assets/glock.png";
-
 // blueprint vehicle render
 import blue1 from "../assets/blueprint_vehicles/1.png";
 import blue2 from "../assets/blueprint_vehicles/2.png";
@@ -61,9 +55,8 @@ import resume_image from "../assets/resume_image.png";
 import contact_image from "../assets/contact_image.png";
 
 // WIP IMAGES
-import wip1 from "../assets/wip1.png";
-import wip2 from "../assets/wip2.png";
-import wip3 from "../assets/wip3.png";
+import wip1 from "../assets/wips/1.png";
+import wip2 from "../assets/wips/2.png";
 
 export const HOME_CONTENT = {
   name: "NARASATYA",
@@ -72,12 +65,13 @@ export const HOME_CONTENT = {
   link: "https://www.instagram.com/narasatyaaa",
   images: [
     {
-      mainImage: blue1,
-      title: "ALL OF THE CARS",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  ",
+      mainImage: modeler1,
+      title: "CARS",
+      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [blue2, blue3, blue4],
+      carousel: [modeler2, modeler3, modeler4, modeler5, modeler6, modeler7, modeler8, modeler9],
     },
+
     {
       mainImage: og1,
       title: "WHITE CAR AND A BITCH",
@@ -86,12 +80,13 @@ export const HOME_CONTENT = {
       carousel: [og2, og3, og4, og5, og6, og7],
     },
     {
-      mainImage: lowpoly1,
-      title: "CAR GARAGE",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      mainImage: blue1,
+      title: "ALL OF THE CARS",
+      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  ",
       madeIn: "Made in Blender",
-      carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5],
+      carousel: [blue2, blue3, blue4],
     },
+
     {
       mainImage: nissan1,
       title: "NICE NISSAN",
@@ -101,11 +96,11 @@ export const HOME_CONTENT = {
     },
 
     {
-      mainImage: modeler1,
-      title: "CARS",
+      mainImage: lowpoly1,
+      title: "CAR GARAGE",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [modeler2, modeler3, modeler4, modeler5, modeler6, modeler7, modeler8, modeler9],
+      carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5],
     },
 
     {
@@ -167,10 +162,6 @@ export const CONTACT_CONTENT = {
 };
 
 export const WIP_CONTENT = [
-  {
-    description: "MERAH",
-    image: wip3,
-  },
   {
     description: "Ferrari F80",
     image: wip2,
