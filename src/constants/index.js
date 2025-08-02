@@ -119,7 +119,7 @@ export const RESUME_CONTENT = {
   role: "Junior 3d artist",
   city: "Surabaya, Indonesia",
   image: resume_image,
-  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Hardsurface modeller", "2D Illustratior"],
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Hardsurface modeller", "2D Illustrator", ],
   experience: [
     {
       year_range: "Aug 2024 - Feb 2025",
@@ -186,11 +186,11 @@ export const CONTACT_CONTENT = {
 
 export const WIP_CONTENT = [
   {
-    description: "Ferrari F80",
+    description: "WIP.Mercedes AMG black series",
     image: wip2,
   },
   {
-    description: "Mercedes AMG black series",
+    description: "WIP.Ferrari F80",
     image: wip1,
   },
 ];
