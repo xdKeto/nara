@@ -18,6 +18,7 @@ import lowpoly2 from "../assets/low_poly/2.png";
 import lowpoly3 from "../assets/low_poly/3.png";
 import lowpoly4 from "../assets/low_poly/4.png";
 import lowpoly5 from "../assets/low_poly/5.png";
+import lowpoly6 from "../assets/low_poly/6.png"
 
 // modeler images
 import modeler1 from "../assets/modeler_images/1.png";
@@ -100,7 +101,7 @@ export const HOME_CONTENT = {
       title: "CAR GARAGE",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5],
+      carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5, lowpoly6],
     },
 
     {
