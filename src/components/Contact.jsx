@@ -43,7 +43,6 @@ const iconMap = {
   "fa-instagram": FaInstagram,
   "fa-x-twitter": FaTwitter,
   "fa-linkedin": FaLinkedin,
-  "fa-discord" : FaDiscord
 };
 
 const Contact = () => {

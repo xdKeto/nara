@@ -161,45 +161,6 @@ const Resume = () => {
               </g>
             </svg>
           </div>
-          {/* autodesk */}
-          <div className="px-2 flex-w-1/5 max-w-[120px]:">
-            <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-
-              <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round" />
-
-              <g id="SVGRepo_iconCarrier">
-                {" "}
-                <path
-                  d="M22.4829 28.999L11.6717 4.04045C11.4855 3.61551 11.1869 3.06723 10.4142 3.06723C9.72361 3.06723 9.39469 3.39317 9.20898 3.74363C9.30498 3.4909 9.59562 2.99995 10.4381 2.99995H17.8997C18.5873 2.99995 18.9172 3.39484 19.0675 3.75637L30.0003 28.999H22.4829Z"
-                  fill="url(#paint0_linear_87_7311)"
-                />{" "}
-                <path
-                  d="M9.20863 3.74379L2.35935 19.689C2.15077 20.1969 2 20.5001 2 20.9032C2 21.6254 2.56266 22.3494 3.98221 22.3494H8.68212L14.1438 9.74842L11.6714 4.0406C11.4851 3.61567 11.1865 3.06738 10.4138 3.06738C9.72328 3.06738 9.39433 3.39334 9.20863 3.74379Z"
-                  fill="url(#paint1_linear_87_7311)"
-                />{" "}
-                <path
-                  d="M3.98224 22.3496L19.5761 22.3495L10.5266 27.8164C10.0855 28.0708 8.40787 29.0003 7.23082 29.0003C6.47205 29.0003 6.07784 28.7211 5.69931 28.0729L2.24201 21.823C2.00384 21.3751 2 21.2259 2 20.9033C2 21.6255 2.56269 22.3496 3.98224 22.3496Z"
-                  fill="url(#paint2_linear_87_7311)"
-                />{" "}
-                <defs>
-                  {" "}
-                  <linearGradient id="paint0_linear_87_7311" x1="14.0496" y1="3.48412" x2="16.3686" y2="9.14699" gradientUnits="userSpaceOnUse">
-                    {" "}
-                    <stop stopColor="#29A5E3" /> <stop offset="0.515" stopColor="#356EB9" /> <stop offset="1" stopColor="#394DA5" />{" "}
-                  </linearGradient>{" "}
-                  <linearGradient id="paint1_linear_87_7311" x1="12.3865" y1="5.14659" x2="10.8085" y2="8.94698" gradientUnits="userSpaceOnUse">
-                    {" "}
-                    <stop stopColor="#236736" /> <stop offset="0.493" stopColor="#6BA443" /> <stop offset="1" stopColor="#86C146" />{" "}
-                  </linearGradient>{" "}
-                  <linearGradient id="paint2_linear_87_7311" x1="4.173" y1="25.0605" x2="7.4853" y2="24.3837" gradientUnits="userSpaceOnUse">
-                    {" "}
-                    <stop stopColor="#2B7A77" /> <stop offset="0.51" stopColor="#4EBAA9" /> <stop offset="1" stopColor="#5CC2B1" />{" "}
-                  </linearGradient>{" "}
-                </defs>{" "}
-              </g>
-            </svg>
-          </div>
           {/* Photoshop */}
           <div className="px-2 flex-w-1/5 max-w-[120px]:">
             <svg width="64px" height="64px" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -274,12 +235,15 @@ const Resume = () => {
           {RESUME_CONTENT.experience.map((exp, index) => (
             // framer motion layer
             <motion.div key={index} variants={childVariants} className="will-change-transform">
-              <div className="flex flex-col md:flex-row md: justify-between">
+              <div className="flex flex-col md:flex-row md:justify-between">
                 <div className="text-sm font-semibold md:w-1/4 mb-2 md:mb-0 p-4">{exp.year_range}</div>
-                <div className="md:w-3/4 mb-10">
+                <div className="md:w-5/6 mb-10">
                   <div className="max-w-3xl backdrop-blur-3xl p-4 bg-gray-100 rounded-lg">
-                    <h2 className="text-xl mb-2 font-semibold "> {exp.title}</h2>
-                    <p className="mb-4 text-sm italic">{exp.location}</p>
+                    <h2 className="text-xl mb-2 font-bold ">
+                      {exp.title} - <span className="mb-4 text-sm italic font-normal"> {exp.location} </span>
+                    </h2>
+                    <p className="text-sm italic font-semibold">{exp.role}</p>
+                    <p className="mb-4 text-sm italic">{exp.subtitle}</p>
                     <ul className="list-disc list-inside space-y-2">
                       {" "}
                       {exp.description.map((desc, index) => (

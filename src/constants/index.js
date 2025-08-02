@@ -18,7 +18,7 @@ import lowpoly2 from "../assets/low_poly/2.png";
 import lowpoly3 from "../assets/low_poly/3.png";
 import lowpoly4 from "../assets/low_poly/4.png";
 import lowpoly5 from "../assets/low_poly/5.png";
-import lowpoly6 from "../assets/low_poly/6.png"
+import lowpoly6 from "../assets/low_poly/6.png";
 
 // modeler images
 import modeler1 from "../assets/modeler_images/1.png";
@@ -119,13 +119,41 @@ export const RESUME_CONTENT = {
   role: "Junior 3d artist",
   city: "Surabaya, Indonesia",
   image: resume_image,
-  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Hardsurface modeller", "2D Illustratior", ],
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Hardsurface modeller", "2D Illustratior"],
   experience: [
     {
       year_range: "Aug 2024 - Feb 2025",
-      title: "Junior Artist at Sireishi Production",
+      title: "Sireishi Production",
+      role: "Junior Artist Internship",
+      subtitle: "A indie company that makes 3d and 2d games",
       location: "Malang, Indonesia",
-      description: ["turu", "turu", "turu", "turu"],
+      description: ["3d artist for some of the games, creating 3D game assets for the background and also some low poly characters", "VFX artist for creating the skill effects for the games"],
+    },
+    {
+      year_range: "Feb 2024 - July 2024",
+      title: "Tiny Ripple",
+      role: "Head of R&D, 3D environment, and 3D modeler",
+      subtitle: "This is an Animation Project from the University and this animation short is for children aged 6-8 years, discussing one of the issues regarding Global Warming.",
+      location: "Surabaya, Indonesia",
+      description: [
+        "R&D, shader style and the over all look : Researching different types of shaders and ways to make the style look like the look dev artwork",
+        "3D camera artist : Placing cameras in the 3D space to make sure it fits the story board and the overall shot of the scenes",
+        "3D lighting artist : Placing lighting for the 3D environment that includes setting lights for the morning, evening and also night.",
+        "2D prop artist : creating small 3D objects like trash bin, toy airplane.",
+        "3D modeller for, 3D floor plan, background houses and also vehicles such as a bicycle and a truck.",
+        "Renderer: In charged of rendering all the 3d scenes for the short movie",
+      ],
+    },
+    {
+      year_range: "Dec 2023 - Aug 2024",
+      title: "InnerVoice",
+      role: "Graphic Designer",
+      subtitle: "We provide a service of documentation, photography and social media content creator. Documenting events and also for small business.",
+      location: "Surabaya, Indonesia",
+      description: [
+        "Social media content manager : Creates social media post for the social media account. Also manages the overall look of the Instagram page",
+        "Photographer : Back up photographer for the team, and handles photos and also videos when other team members are unavailable.",
+      ],
     },
   ],
 };
@@ -152,12 +180,6 @@ export const CONTACT_CONTENT = {
       link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
       icon: "fa-linkedin",
       aria_label: "Contact me on LinkedIn!",
-    },
-    {
-      platform: "Discord",
-      link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
-      icon: "fa-discord",
-      aria_label: "Contact me on Discord!",
     },
   ],
 };
