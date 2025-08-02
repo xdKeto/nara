@@ -188,7 +188,7 @@ const Home = () => {
             <h1 className="text-white text-sm md:text-xl font-semibold"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
           </div>
-          <div className="w-full md:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
+          <div className="w-full lg:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
             {/* <button onClick={prevImage} className="z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
               &#8249;
             </button> */}
