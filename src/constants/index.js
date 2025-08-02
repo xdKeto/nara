@@ -5,6 +5,55 @@ import white_char from "../assets/white_char.png";
 import blue_car from "../assets/blue_car.png";
 import glock from "../assets/glock.png";
 
+// blueprint vehicle render
+import blue1 from "../assets/blueprint_vehicles/1.png";
+import blue2 from "../assets/blueprint_vehicles/2.png";
+import blue3 from "../assets/blueprint_vehicles/3.png";
+import blue4 from "../assets/blueprint_vehicles/4.png";
+
+// glock
+import glock1 from "../assets/glock/1.png";
+import glock2 from "../assets/glock/2.png";
+import glock3 from "../assets/glock/3.png";
+import glock4 from "../assets/glock/4.png";
+import glock5 from "../assets/glock/5.png";
+
+// low poly
+import lowpoly1 from "../assets/low_poly/1.png";
+import lowpoly2 from "../assets/low_poly/2.png";
+import lowpoly3 from "../assets/low_poly/3.png";
+import lowpoly4 from "../assets/low_poly/4.png";
+import lowpoly5 from "../assets/low_poly/5.png";
+
+// modeler images
+import modeler1 from "../assets/modeler_images/1.png";
+import modeler2 from "../assets/modeler_images/2.png";
+import modeler3 from "../assets/modeler_images/3.png";
+import modeler4 from "../assets/modeler_images/4.png";
+import modeler5 from "../assets/modeler_images/5.png";
+import modeler6 from "../assets/modeler_images/6.png";
+import modeler7 from "../assets/modeler_images/7.png";
+import modeler8 from "../assets/modeler_images/8.png";
+import modeler9 from "../assets/modeler_images/9.png";
+
+// NISSAN R34
+import nissan1 from "../assets/nissan_r34/1.png";
+import nissan2 from "../assets/nissan_r34/2.png";
+import nissan3 from "../assets/nissan_r34/3.png";
+import nissan4 from "../assets/nissan_r34/4.png";
+import nissan5 from "../assets/nissan_r34/5.png";
+import nissan6 from "../assets/nissan_r34/6.png";
+import nissan7 from "../assets/nissan_r34/7.png";
+
+// OG CHAR
+import og1 from "../assets/og_char/1.png";
+import og2 from "../assets/og_char/2.png";
+import og3 from "../assets/og_char/3.png";
+import og4 from "../assets/og_char/4.png";
+import og5 from "../assets/og_char/5.png";
+import og6 from "../assets/og_char/6.png";
+import og7 from "../assets/og_char/7.png";
+
 // RESUME IMAGES
 import resume_image from "../assets/resume_image.png";
 
@@ -23,39 +72,48 @@ export const HOME_CONTENT = {
   link: "https://www.instagram.com/narasatyaaa",
   images: [
     {
-      mainImage: showroom_image,
+      mainImage: blue1,
       title: "ALL OF THE CARS",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  ",
       madeIn: "Made in Blender",
-      carousel: [wip1, wip2, wip3, wip1, wip2, wip3, wip1, wip2, wip3, wip1],
+      carousel: [blue2, blue3, blue4],
     },
     {
-      mainImage: white_char,
+      mainImage: og1,
       title: "WHITE CAR AND A BITCH",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [wip3, wip2],
+      carousel: [og2, og3, og4, og5, og6, og7],
     },
     {
-      mainImage: all_cars,
+      mainImage: lowpoly1,
       title: "CAR GARAGE",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [wip2, wip2],
+      carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5],
     },
     {
-      mainImage: blue_car,
+      mainImage: nissan1,
       title: "NICE NISSAN",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
       madeIn: "Made in Blender",
-      carousel: [wip3, wip2],
+      carousel: [nissan2, nissan3, nissan4, nissan5, nissan6, nissan7],
     },
+
     {
-      mainImage: glock,
+      mainImage: modeler1,
+      title: "CARS",
+      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      madeIn: "Made in Blender",
+      carousel: [modeler2, modeler3, modeler4, modeler5, modeler6, modeler7, modeler8, modeler9],
+    },
+
+    {
+      mainImage: glock1,
       title: "Armed n Dangerous",
       description: "Police steady watchin me, every day they clockin' me Red alert, armed and dangerous, I keep that Glock on me (Boom, boom) And I ain't lookin' for no trouble, I'm just lookin' out for me (Nah)",
       madeIn: "Made in Blender",
-      carousel: [wip1, wip2],
+      carousel: [glock2, glock3, glock4, glock5],
     },
   ],
 };

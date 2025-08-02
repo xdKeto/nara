@@ -147,7 +147,7 @@ const Home = () => {
             />
           </div>
 
-          <div className="col-span-8">
+          <div className="col-span-12">
             <img
               src={HOME_CONTENT.images[3].mainImage}
               loading="lazy"
@@ -156,13 +156,24 @@ const Home = () => {
               onClick={() => openViewer(HOME_CONTENT.images[3])}
             />
           </div>
-          <div className="col-span-4">
+
+          <div className="col-span-8">
             <img
               src={HOME_CONTENT.images[4].mainImage}
               loading="lazy"
               alt={HOME_CONTENT.images[4].title}
               className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
               onClick={() => openViewer(HOME_CONTENT.images[4])}
+            />
+          </div>
+
+          <div className="col-span-4">
+            <img
+              src={HOME_CONTENT.images[5].mainImage}
+              loading="lazy"
+              alt={HOME_CONTENT.images[5].title}
+              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+              onClick={() => openViewer(HOME_CONTENT.images[5])}
             />
           </div>
         </div>
@@ -180,37 +191,35 @@ const Home = () => {
             {/* <button onClick={prevImage} className="z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
               &#8249;
             </button> */}
-            <div id="pictureContainer"  className="relative w-full md:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
-            <div className="relative">
-              <button onClick={prevImage} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
-                &#8249;
-              </button>
-              <div className="flex flex-col items-center ">
-                <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-full max-h-[56vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
-                {/* Thumbnails for desktop */}
-                <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
-                  {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
-                    <img
-                      key={index}
-                      ref={(el) => (thumbnailRefs.current[index] = el)}
-                      src={thumb}
-                      alt={`Thumbnail ${index + 1}`}
-                      className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 flex-shrink-0 ${
-                        activeImageIndex === index ? "border-white" : "border-transparent"
-                      }`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setActiveImageIndex(index);
-                      }}
-                    />
-                  ))}
+            <div id="pictureContainer" className="relative w-full md:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
+              <div className="relative">
+                <button onClick={prevImage} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
+                  &#8249;
+                </button>
+                <div className="flex flex-col items-center ">
+                  <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
+                  {/* Thumbnails for desktop */}
+                  <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
+                    {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
+                      <img
+                        key={index}
+                        ref={(el) => (thumbnailRefs.current[index] = el)}
+                        src={thumb}
+                        alt={`Thumbnail ${index + 1}`}
+                        className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 flex-shrink-0 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImageIndex(index);
+                        }}
+                      />
+                    ))}
+                  </div>
                 </div>
+                <button onClick={nextImage} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white py-2 lg:py-8 px-2  rounded-lg text-4xl sm:text-5xl  font-bold">
+                  &#8250;
+                </button>
               </div>
-              <button onClick={nextImage} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white py-2 lg:py-8 px-2  rounded-lg text-4xl sm:text-5xl  font-bold">
-                &#8250;
-              </button>
             </div>
-          </div>
             {/* <button onClick={nextImage} className="z-10 bg-black/50 text-white py-2 lg:py-8 px-2  rounded-lg text-4xl sm:text-5xl  font-bold">
               &#8250;
             </button> */}
