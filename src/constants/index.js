@@ -67,47 +67,48 @@ export const HOME_CONTENT = {
   images: [
     {
       mainImage: modeler1,
-      title: "CARS",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      title: "3D vehicles, using Image modeling method",
+      description: "Vehicles here was created using the image modeling method, used subdiv to smooth out the model ",
       madeIn: "Made in Blender",
       carousel: [modeler2, modeler3, modeler4, modeler5, modeler6, modeler7, modeler8, modeler9],
     },
 
     {
       mainImage: og1,
-      title: "WHITE CAR AND A BITCH",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      title: "Original character",
+      description: "a low poly 3d model of a original character that I made ",
       madeIn: "Made in Blender",
       carousel: [og2, og3, og4, og5, og6, og7],
     },
     {
       mainImage: blue1,
-      title: "ALL OF THE CARS",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  ",
+      title: "3D vehicles, using Blueprint method",
+      description: "Vehicles here was created using the blueprint method, used subdiv to smooth out the model  ",
       madeIn: "Made in Blender",
       carousel: [blue2, blue3, blue4],
     },
 
     {
       mainImage: nissan1,
-      title: "NICE NISSAN",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      title: "1999 Nissan Skyline GT-R (R34)",
+      description: "a close up of the 3D model , first was image calibrating using image modeller then continued the rest in blender ",
       madeIn: "Made in Blender",
       carousel: [nissan2, nissan3, nissan4, nissan5, nissan6, nissan7],
     },
 
     {
       mainImage: lowpoly1,
-      title: "CAR GARAGE",
-      description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+      title: "3d Lowpoly vehicles",
+      description: "Simplistic version of the vehicles still maintaining the blocky forms, low poly versions of the real life cars
+ ",
       madeIn: "Made in Blender",
       carousel: [lowpoly2, lowpoly3, lowpoly4, lowpoly5, lowpoly6],
     },
 
     {
       mainImage: glock1,
-      title: "Armed n Dangerous",
-      description: "Police steady watchin me, every day they clockin' me Red alert, armed and dangerous, I keep that Glock on me (Boom, boom) And I ain't lookin' for no trouble, I'm just lookin' out for me (Nah)",
+      title: "Glock 17",
+      description: "a 3d model of the gun and a small diorama",
       madeIn: "Made in Blender",
       carousel: [glock2, glock3, glock4, glock5],
     },
@@ -119,7 +120,7 @@ export const RESUME_CONTENT = {
   role: "Junior 3d artist",
   city: "Surabaya, Indonesia",
   image: resume_image,
-  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Animation", "Yapping", "Turu", "BedMaxxing", "IGReelsMaxxing", "JobMaxxing"],
+  skills: ["3D Modeling", "3D Rendering", "3D Animation", "3D Hardsurface modeller", "2D Illustratior", ],
   experience: [
     {
       year_range: "Aug 2024 - Feb 2025",
