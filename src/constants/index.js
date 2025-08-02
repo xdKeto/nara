@@ -27,7 +27,7 @@ export const HOME_CONTENT = {
       title: "ALL OF THE CARS",
       description: "lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum  ",
       madeIn: "Made in Blender",
-      carousel: [wip1, wip2, wip3, wip1],
+      carousel: [wip1, wip2, wip3, wip1, wip2, wip3, wip1, wip2, wip3, wip1],
     },
     {
       mainImage: white_char,
@@ -98,6 +98,12 @@ export const CONTACT_CONTENT = {
       link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
       icon: "fa-linkedin",
       aria_label: "Contact me on LinkedIn!",
+    },
+    {
+      platform: "Discord",
+      link: "https://www.linkedin.com/in/narasatya-joy-236185218/",
+      icon: "fa-discord",
+      aria_label: "Contact me on Discord!",
     },
   ],
 };

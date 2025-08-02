@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { CONTACT_CONTENT } from "../constants";
 import { motion } from "framer-motion";
 import TiltedCard from "./TiltedCard/TiltedCard";
@@ -43,6 +43,7 @@ const iconMap = {
   "fa-instagram": FaInstagram,
   "fa-x-twitter": FaTwitter,
   "fa-linkedin": FaLinkedin,
+  "fa-discord" : FaDiscord
 };
 
 const Contact = () => {
@@ -71,7 +72,7 @@ const Contact = () => {
 
           <div className="flex space-x-6 mt-8">
             {CONTACT_CONTENT.social_links.map((link, index) => {
-              const Icon = iconMap[link.icon] || FaLinkedin;
+              const Icon = iconMap[link.icon];
               return (
                 <motion.a
                   initial="hidden"

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { HOME_CONTENT } from "../constants";
 import { CONTACT_CONTENT } from "../constants";
 import { motion } from "framer-motion";
@@ -30,6 +30,8 @@ const Home = () => {
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [loading, setLoading] = useState(true);
+  const thumbnailContainerRef = useRef(null);
+  const thumbnailRefs = useRef([]);
 
   useEffect(() => {
     const imagesToPreload = HOME_CONTENT.images.map((item) => item.mainImage);
@@ -47,6 +49,21 @@ const Home = () => {
       setLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (viewerOpen && thumbnailContainerRef.current && thumbnailRefs.current[activeImageIndex]) {
+      const container = thumbnailContainerRef.current;
+      const activeThumbnail = thumbnailRefs.current[activeImageIndex];
+      const containerWidth = container.offsetWidth;
+      const thumbnailLeft = activeThumbnail.offsetLeft;
+      const thumbnailWidth = activeThumbnail.offsetWidth;
+
+      container.scrollTo({
+        left: thumbnailLeft - containerWidth / 2 + thumbnailWidth / 2,
+        behavior: "smooth",
+      });
+    }
+  }, [activeImageIndex, viewerOpen]);
 
   const openViewer = (item) => {
     setSelectedItem(item);
@@ -167,13 +184,16 @@ const Home = () => {
               <div className="flex flex-col items-center ">
                 <img src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]} alt="Full View" className="max-w-full max-h-[56vh] rounded-lg shadow-lg object-contain" onClick={(e) => e.stopPropagation()} />
                 {/* Thumbnails for desktop */}
-                <div className="hidden md:flex md:flex-row md:space-x-2 mt-2">
+                <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
                   {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
                     <img
                       key={index}
+                      ref={(el) => (thumbnailRefs.current[index] = el)}
                       src={thumb}
                       alt={`Thumbnail ${index + 1}`}
-                      className={`w-16 h-8 xl:w-32 md:h-16 object-cover rounded-md cursor-pointer border-2 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                      className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 flex-shrink-0 ${
+                        activeImageIndex === index ? "border-white" : "border-transparent"
+                      }`}
                       onClick={(e) => {
                         e.stopPropagation();
                         setActiveImageIndex(index);
