@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Wip from "./components/Wip";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
