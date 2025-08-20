@@ -2,6 +2,7 @@ import { FaDiscord, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { CONTACT_CONTENT } from "../constants";
 import { motion } from "framer-motion";
 import TiltedCard from "./TiltedCard/TiltedCard";
+import { FaXTwitter } from "react-icons/fa6";
 
 // import icons from "react-icons/fa"
 
@@ -41,7 +42,7 @@ const iconVariants = {
 
 const iconMap = {
   "fa-instagram": FaInstagram,
-  "fa-x-twitter": FaTwitter,
+  "fa-x-twitter": FaXTwitter,
   "fa-linkedin": FaLinkedin,
 };
 
