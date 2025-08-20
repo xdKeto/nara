@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Wip from "./components/Wip";
+import { Analytics } from "@vercel/analytics/next";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -27,11 +28,12 @@ function App() {
 
   return (
     <>
+      <Analytics />
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-        <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden max-w-5xl mx-auto relative z-10 justify-items-center">
-            <BodyComponent />
-        </div>
-        <Footer />
+      <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden max-w-5xl mx-auto relative z-10 justify-items-center">
+        <BodyComponent />
+      </div>
+      <Footer />
     </>
   );
 }
