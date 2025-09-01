@@ -1,0 +1,698 @@
+{
+    "data": {
+        "id": 4,
+        "documentId": "jm4smrvn32j9npydsheluaok",
+        "createdAt": "2025-09-01T05:05:37.811Z",
+        "updatedAt": "2025-09-01T05:44:32.154Z",
+        "publishedAt": "2025-09-01T05:44:32.431Z",
+        "homePage": {
+            "id": 4,
+            "bigTitle": "My Portfolio",
+            "bigImage": {
+                "id": 1,
+                "documentId": "ibzujvju9p4bzzc6j9qtuafm",
+                "name": "1.png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 1920,
+                "height": 1080,
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_1.png",
+                        "hash": "thumbnail_1_e14de31afc",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 245,
+                        "height": 138,
+                        "size": 15.01,
+                        "sizeInBytes": 15014,
+                        "url": "/uploads/thumbnail_1_e14de31afc.png"
+                    },
+                    "small": {
+                        "name": "small_1.png",
+                        "hash": "small_1_e14de31afc",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 500,
+                        "height": 281,
+                        "size": 48.64,
+                        "sizeInBytes": 48641,
+                        "url": "/uploads/small_1_e14de31afc.png"
+                    },
+                    "medium": {
+                        "name": "medium_1.png",
+                        "hash": "medium_1_e14de31afc",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 750,
+                        "height": 422,
+                        "size": 96.06,
+                        "sizeInBytes": 96059,
+                        "url": "/uploads/medium_1_e14de31afc.png"
+                    },
+                    "large": {
+                        "name": "large_1.png",
+                        "hash": "large_1_e14de31afc",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 1000,
+                        "height": 563,
+                        "size": 156.81,
+                        "sizeInBytes": 156812,
+                        "url": "/uploads/large_1_e14de31afc.png"
+                    }
+                },
+                "hash": "1_e14de31afc",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 88.82,
+                "url": "/uploads/1_e14de31afc.png",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2025-09-01T04:59:37.112Z",
+                "updatedAt": "2025-09-01T05:08:43.077Z",
+                "publishedAt": "2025-09-01T04:59:37.112Z"
+            },
+            "homeCategories": [
+                {
+                    "id": 4,
+                    "title": "3D Modeling",
+                    "thumbnail": [
+                        {
+                            "id": 3,
+                            "documentId": "ai7xmw40fvoxu44hoshiiqlg",
+                            "name": "1.png",
+                            "alternativeText": null,
+                            "caption": null,
+                            "width": 1920,
+                            "height": 1080,
+                            "formats": {
+                                "thumbnail": {
+                                    "name": "thumbnail_1.png",
+                                    "hash": "thumbnail_1_3b503768fa",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 245,
+                                    "height": 138,
+                                    "size": 15.01,
+                                    "sizeInBytes": 15014,
+                                    "url": "/uploads/thumbnail_1_3b503768fa.png"
+                                },
+                                "small": {
+                                    "name": "small_1.png",
+                                    "hash": "small_1_3b503768fa",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 500,
+                                    "height": 281,
+                                    "size": 48.64,
+                                    "sizeInBytes": 48641,
+                                    "url": "/uploads/small_1_3b503768fa.png"
+                                },
+                                "medium": {
+                                    "name": "medium_1.png",
+                                    "hash": "medium_1_3b503768fa",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 750,
+                                    "height": 422,
+                                    "size": 96.06,
+                                    "sizeInBytes": 96059,
+                                    "url": "/uploads/medium_1_3b503768fa.png"
+                                },
+                                "large": {
+                                    "name": "large_1.png",
+                                    "hash": "large_1_3b503768fa",
+                                    "ext": ".png",
+                                    "mime": "image/png",
+                                    "path": null,
+                                    "width": 1000,
+                                    "height": 563,
+                                    "size": 156.81,
+                                    "sizeInBytes": 156812,
+                                    "url": "/uploads/large_1_3b503768fa.png"
+                                }
+                            },
+                            "hash": "1_3b503768fa",
+                            "ext": ".png",
+                            "mime": "image/png",
+                            "size": 88.82,
+                            "url": "/uploads/1_3b503768fa.png",
+                            "previewUrl": null,
+                            "provider": "local",
+                            "provider_metadata": null,
+                            "createdAt": "2025-09-01T05:02:01.061Z",
+                            "updatedAt": "2025-09-01T05:09:32.944Z",
+                            "publishedAt": "2025-09-01T05:02:01.061Z"
+                        }
+                    ],
+                    "detailPage": {
+                        "id": 4,
+                        "title": "3D Modeling",
+                        "images": [
+                            {
+                                "id": 16,
+                                "title": "3D vehicles, using Image modeling method",
+                                "description": "Vehicles here was created using the image modeling method, used subdiv to smooth out the model",
+                                "madeIn": "Made in Blender"
+                            },
+                            {
+                                "id": 17,
+                                "title": "Original character",
+                                "description": "a low poly 3d model of a original character that I made",
+                                "madeIn": "Made in Blender"
+                            },
+                            {
+                                "id": 18,
+                                "title": "3D vehicles, using Blueprint method",
+                                "description": "Vehicles here was created using the blueprint method, used subdiv to smooth out the model",
+                                "madeIn": "Made in Blender"
+                            },
+                            {
+                                "id": 19,
+                                "title": "1999 Nissan Skyline GT-R (R34)",
+                                "description": "a close up of the 3D model , first was image calibrating using image modeller then continued the rest in blender",
+                                "madeIn": "Made in Blender"
+                            },
+                            {
+                                "id": 20,
+                                "title": "3d Lowpoly vehicles",
+                                "description": "Simplistic version of the vehicles still maintaining the blocky forms, low poly versions of the real life cars",
+                                "madeIn": "Made in Blender"
+                            },
+                            {
+                                "id": 21,
+                                "title": "Glock 17",
+                                "description": "a 3d model of the gun and a small diorama",
+                                "madeIn": "Made in Blender"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "resumePage": {
+            "id": 3,
+            "name": "NARASATYA JOY W.",
+            "role": "Junior 3d artist",
+            "city": "Surabaya, Indonesia",
+            "image": {
+                "id": 41,
+                "documentId": "ouuvqnehszetehvpvpdqfh03",
+                "name": "resume_image.png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 264,
+                "height": 322,
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_resume_image.png",
+                        "hash": "thumbnail_resume_image_07e2895031",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 128,
+                        "height": 156,
+                        "size": 49.4,
+                        "sizeInBytes": 49399,
+                        "url": "/uploads/thumbnail_resume_image_07e2895031.png"
+                    }
+                },
+                "hash": "resume_image_07e2895031",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 46.8,
+                "url": "/uploads/resume_image_07e2895031.png",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2025-09-01T05:29:42.997Z",
+                "updatedAt": "2025-09-01T05:29:42.997Z",
+                "publishedAt": "2025-09-01T05:29:42.997Z"
+            },
+            "skills": [
+                {
+                    "id": 11,
+                    "skill": "3D Modeling"
+                },
+                {
+                    "id": 12,
+                    "skill": "3D Rendering"
+                },
+                {
+                    "id": 13,
+                    "skill": "3D Animation"
+                },
+                {
+                    "id": 14,
+                    "skill": "3D Hardsurface modeller"
+                },
+                {
+                    "id": 15,
+                    "skill": "2D Illustrator"
+                }
+            ],
+            "softwareIcons": [
+                {
+                    "id": 44,
+                    "documentId": "hcqlfzzz9khhx519k0npxdnn",
+                    "name": "icons8-blender-48.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 48,
+                    "height": 48,
+                    "formats": null,
+                    "hash": "icons8_blender_48_2bd1b85075",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 0.55,
+                    "url": "/uploads/icons8_blender_48_2bd1b85075.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2025-09-01T05:40:31.109Z",
+                    "updatedAt": "2025-09-01T05:40:31.109Z",
+                    "publishedAt": "2025-09-01T05:40:31.109Z"
+                },
+                {
+                    "id": 46,
+                    "documentId": "e552scxti5tdo3p6d59ic9bq",
+                    "name": "icons8-zbrush-48.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 48,
+                    "height": 48,
+                    "formats": null,
+                    "hash": "icons8_zbrush_48_cbf01c7c25",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 0.47,
+                    "url": "/uploads/icons8_zbrush_48_cbf01c7c25.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2025-09-01T05:40:31.298Z",
+                    "updatedAt": "2025-09-01T05:40:31.298Z",
+                    "publishedAt": "2025-09-01T05:40:31.298Z"
+                },
+                {
+                    "id": 45,
+                    "documentId": "nzwl107fftg8gunubxif84zq",
+                    "name": "photoshop.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 64,
+                    "height": 64,
+                    "formats": null,
+                    "hash": "photoshop_94fa5e1ef6",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 0.62,
+                    "url": "/uploads/photoshop_94fa5e1ef6.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2025-09-01T05:40:31.203Z",
+                    "updatedAt": "2025-09-01T05:40:31.203Z",
+                    "publishedAt": "2025-09-01T05:40:31.203Z"
+                },
+                {
+                    "id": 42,
+                    "documentId": "alj4xgp6yyttndvie4mtqgqu",
+                    "name": "illustrator.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 64,
+                    "height": 64,
+                    "formats": null,
+                    "hash": "illustrator_f41052a4c0",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 0.61,
+                    "url": "/uploads/illustrator_f41052a4c0.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2025-09-01T05:40:31.085Z",
+                    "updatedAt": "2025-09-01T05:40:31.085Z",
+                    "publishedAt": "2025-09-01T05:40:31.086Z"
+                },
+                {
+                    "id": 43,
+                    "documentId": "owpkkqs6g0romg6zbdcugjmb",
+                    "name": "premiere-pro.png",
+                    "alternativeText": null,
+                    "caption": null,
+                    "width": 64,
+                    "height": 64,
+                    "formats": null,
+                    "hash": "premiere_pro_568d44d6af",
+                    "ext": ".png",
+                    "mime": "image/png",
+                    "size": 0.56,
+                    "url": "/uploads/premiere_pro_568d44d6af.png",
+                    "previewUrl": null,
+                    "provider": "local",
+                    "provider_metadata": null,
+                    "createdAt": "2025-09-01T05:40:31.099Z",
+                    "updatedAt": "2025-09-01T05:40:31.099Z",
+                    "publishedAt": "2025-09-01T05:40:31.099Z"
+                }
+            ],
+            "experience": [
+                {
+                    "id": 7,
+                    "yearRange": "Aug 2024 - Feb 2025",
+                    "title": "Sireishi Production",
+                    "role": "Junior Artist Internship",
+                    "subtitle": "A indie company that makes 3d and 2d games",
+                    "location": "Malang, Indonesia",
+                    "description": [
+                        {
+                            "id": 21,
+                            "jobDesc": "3d artist for some of the games, creating 3D game assets for the background and also some low poly characters"
+                        },
+                        {
+                            "id": 22,
+                            "jobDesc": "VFX artist for creating the skill effects for the games"
+                        }
+                    ]
+                },
+                {
+                    "id": 8,
+                    "yearRange": "Feb 2024 - July 2024",
+                    "title": "Tiny Ripple",
+                    "role": "Head of R&D, 3D environment, and 3D modeler",
+                    "subtitle": "This is an Animation Project from the University and this animation short is for children aged 6-8 years, discussing one of the issues regarding Global Warming.",
+                    "location": "Surabaya, Indonesia",
+                    "description": [
+                        {
+                            "id": 23,
+                            "jobDesc": "R&D, shader style and the over all look : Researching different types of shaders and ways to make the style look like the look dev artwork"
+                        },
+                        {
+                            "id": 24,
+                            "jobDesc": "3D camera artist : Placing cameras in the 3D space to make sure it fits the story board and the overall shot of the scenes"
+                        },
+                        {
+                            "id": 25,
+                            "jobDesc": "3D lighting artist : Placing lighting for the 3D environment that includes setting lights for the morning, evening and also night."
+                        },
+                        {
+                            "id": 26,
+                            "jobDesc": "2D prop artist : creating small 3D objects like trash bin, toy airplane."
+                        },
+                        {
+                            "id": 27,
+                            "jobDesc": "3D modeller for, 3D floor plan, background houses and also vehicles such as a bicycle and a truck."
+                        },
+                        {
+                            "id": 28,
+                            "jobDesc": "Renderer: In charged of rendering all the 3d scenes for the short movie."
+                        }
+                    ]
+                },
+                {
+                    "id": 9,
+                    "yearRange": "Dec 2023 - Aug 2024",
+                    "title": "InnerVoice",
+                    "role": "Graphic Designer",
+                    "subtitle": "We provide a service of documentation, photography and social media content creator. Documenting events and also for small business.",
+                    "location": "Surabaya, Indonesia",
+                    "description": [
+                        {
+                            "id": 29,
+                            "jobDesc": "Social media content manager : Creates social media post for the social media account. Also manages the overall look of the Instagram page"
+                        },
+                        {
+                            "id": 30,
+                            "jobDesc": "Photographer : Back up photographer for the team, and handles photos and also videos when other team members are unavailable."
+                        }
+                    ]
+                }
+            ]
+        },
+        "contactPage": {
+            "id": 2,
+            "title": "CONTACT ME",
+            "email": "narasatya2004@gmail.com",
+            "thumbnail": {
+                "id": 19,
+                "documentId": "um4i18ksyoszzr5q2r6iwnth",
+                "name": "1.png",
+                "alternativeText": null,
+                "caption": null,
+                "width": 4096,
+                "height": 2160,
+                "formats": {
+                    "thumbnail": {
+                        "name": "thumbnail_1.png",
+                        "hash": "thumbnail_1_af50563117",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 245,
+                        "height": 129,
+                        "size": 24.22,
+                        "sizeInBytes": 24217,
+                        "url": "/uploads/thumbnail_1_af50563117.png"
+                    },
+                    "small": {
+                        "name": "small_1.png",
+                        "hash": "small_1_af50563117",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 500,
+                        "height": 264,
+                        "size": 90.29,
+                        "sizeInBytes": 90294,
+                        "url": "/uploads/small_1_af50563117.png"
+                    },
+                    "medium": {
+                        "name": "medium_1.png",
+                        "hash": "medium_1_af50563117",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 750,
+                        "height": 396,
+                        "size": 187.99,
+                        "sizeInBytes": 187985,
+                        "url": "/uploads/medium_1_af50563117.png"
+                    },
+                    "large": {
+                        "name": "large_1.png",
+                        "hash": "large_1_af50563117",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "path": null,
+                        "width": 1000,
+                        "height": 527,
+                        "size": 333.47,
+                        "sizeInBytes": 333465,
+                        "url": "/uploads/large_1_af50563117.png"
+                    }
+                },
+                "hash": "1_af50563117",
+                "ext": ".png",
+                "mime": "image/png",
+                "size": 947.99,
+                "url": "/uploads/1_af50563117.png",
+                "previewUrl": null,
+                "provider": "local",
+                "provider_metadata": null,
+                "createdAt": "2025-09-01T05:04:34.032Z",
+                "updatedAt": "2025-09-01T05:04:34.032Z",
+                "publishedAt": "2025-09-01T05:04:34.032Z"
+            },
+            "socialLinks": [
+                {
+                    "id": 4,
+                    "platform": "Instagram",
+                    "link": "https://www.instagram.com/narasatyaaa",
+                    "icon": "fa-instagram",
+                    "aria_label": "Contact me on Insta!"
+                },
+                {
+                    "id": 5,
+                    "platform": "Twitter",
+                    "link": "https://x.com/Aranjnara04",
+                    "icon": "fa-x-twitter",
+                    "aria_label": "Contact me on Twitter!"
+                },
+                {
+                    "id": 6,
+                    "platform": "LinkedIn",
+                    "link": "https://www.linkedin.com/in/narasatya-joy-236185218/",
+                    "icon": "fa-linkedin",
+                    "aria_label": "Contact me on LinkedIn!"
+                }
+            ]
+        },
+        "wipPage": {
+            "id": 2,
+            "wips": [
+                {
+                    "id": 3,
+                    "title": "WIP1",
+                    "description": "Mercedes AMG black series",
+                    "image": {
+                        "id": 47,
+                        "documentId": "u9unh43ldip43tl9zra00g71",
+                        "name": "1.png",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 1430,
+                        "height": 820,
+                        "formats": {
+                            "thumbnail": {
+                                "name": "thumbnail_1.png",
+                                "hash": "thumbnail_1_fa3f6a8f78",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 245,
+                                "height": 140,
+                                "size": 60.57,
+                                "sizeInBytes": 60567,
+                                "url": "/uploads/thumbnail_1_fa3f6a8f78.png"
+                            },
+                            "small": {
+                                "name": "small_1.png",
+                                "hash": "small_1_fa3f6a8f78",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 500,
+                                "height": 287,
+                                "size": 218.26,
+                                "sizeInBytes": 218261,
+                                "url": "/uploads/small_1_fa3f6a8f78.png"
+                            },
+                            "medium": {
+                                "name": "medium_1.png",
+                                "hash": "medium_1_fa3f6a8f78",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 750,
+                                "height": 430,
+                                "size": 462.17,
+                                "sizeInBytes": 462169,
+                                "url": "/uploads/medium_1_fa3f6a8f78.png"
+                            },
+                            "large": {
+                                "name": "large_1.png",
+                                "hash": "large_1_fa3f6a8f78",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 1000,
+                                "height": 573,
+                                "size": 788.9,
+                                "sizeInBytes": 788900,
+                                "url": "/uploads/large_1_fa3f6a8f78.png"
+                            }
+                        },
+                        "hash": "1_fa3f6a8f78",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "size": 448.54,
+                        "url": "/uploads/1_fa3f6a8f78.png",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2025-09-01T05:43:43.334Z",
+                        "updatedAt": "2025-09-01T05:43:43.334Z",
+                        "publishedAt": "2025-09-01T05:43:43.334Z"
+                    }
+                },
+                {
+                    "id": 4,
+                    "title": "WIP 2",
+                    "description": "Ferrari F80",
+                    "image": {
+                        "id": 48,
+                        "documentId": "n8vtguzkzudwiys8nfu8uie9",
+                        "name": "2.png",
+                        "alternativeText": null,
+                        "caption": null,
+                        "width": 1640,
+                        "height": 929,
+                        "formats": {
+                            "thumbnail": {
+                                "name": "thumbnail_2.png",
+                                "hash": "thumbnail_2_f83cc299cd",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 245,
+                                "height": 139,
+                                "size": 68.46,
+                                "sizeInBytes": 68457,
+                                "url": "/uploads/thumbnail_2_f83cc299cd.png"
+                            },
+                            "small": {
+                                "name": "small_2.png",
+                                "hash": "small_2_f83cc299cd",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 500,
+                                "height": 283,
+                                "size": 237.36,
+                                "sizeInBytes": 237355,
+                                "url": "/uploads/small_2_f83cc299cd.png"
+                            },
+                            "medium": {
+                                "name": "medium_2.png",
+                                "hash": "medium_2_f83cc299cd",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 750,
+                                "height": 425,
+                                "size": 480.15,
+                                "sizeInBytes": 480152,
+                                "url": "/uploads/medium_2_f83cc299cd.png"
+                            },
+                            "large": {
+                                "name": "large_2.png",
+                                "hash": "large_2_f83cc299cd",
+                                "ext": ".png",
+                                "mime": "image/png",
+                                "path": null,
+                                "width": 1000,
+                                "height": 566,
+                                "size": 795.61,
+                                "sizeInBytes": 795609,
+                                "url": "/uploads/large_2_f83cc299cd.png"
+                            }
+                        },
+                        "hash": "2_f83cc299cd",
+                        "ext": ".png",
+                        "mime": "image/png",
+                        "size": 388.88,
+                        "url": "/uploads/2_f83cc299cd.png",
+                        "previewUrl": null,
+                        "provider": "local",
+                        "provider_metadata": null,
+                        "createdAt": "2025-09-01T05:44:07.554Z",
+                        "updatedAt": "2025-09-01T05:44:07.554Z",
+                        "publishedAt": "2025-09-01T05:44:07.555Z"
+                    }
+                }
+            ]
+        }
+    },
+    "meta": {}
+}

@@ -1,8 +1,9 @@
 import { FaDiscord, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { CONTACT_CONTENT } from "../constants";
+import { getContactPageData } from "../constants";
 import { motion } from "framer-motion";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import { FaXTwitter } from "react-icons/fa6";
+import { getStrapiURL } from "../utils/api";
 
 // import icons from "react-icons/fa"
 
@@ -47,11 +48,24 @@ const iconMap = {
 };
 
 const Contact = () => {
+  const contactData = getContactPageData();
+
+  // Early return if data is not available
+  if (!contactData) {
+    return (
+      <section className="px-6 select-none">
+        <div className="text-center py-8">
+          <p className="text-gray-500">Loading contact data...</p>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="px-6 select-none">
       <motion.div initial="hidden" animate="visible" variants={containerVariants} className="will-change-transform relative z-10 flex flex-col-reverse md:flex-row text-white md:mt-6 space-y-4 md:space-y-0">
         <TiltedCard
-          imageSrc={CONTACT_CONTENT.image}
+          imageSrc={getStrapiURL(contactData.thumbnail?.url)}
           containerHeight="250px"
           containerWidth="350px"
           rotateAmplitude={12}
@@ -64,14 +78,14 @@ const Contact = () => {
 
         <div className="w-full md:w-1/2 py-4 px-8 ">
           <motion.h1 initial="hidden" animate="visible" variants={textVariants} className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">
-            {CONTACT_CONTENT.headline}
+            {contactData.title}
           </motion.h1>
-          <motion.a initial="hidden" animate="visible" variants={textVariants} href={`mailto:${CONTACT_CONTENT.email}`} className="text-black font-semibold text-md md:text-lg my-4 md:my-8">
-            {CONTACT_CONTENT.email}
+          <motion.a initial="hidden" animate="visible" variants={textVariants} href={`mailto:${contactData.email}`} className="text-black font-semibold text-md md:text-lg my-4 md:my-8">
+            {contactData.email}
           </motion.a>
 
           <div className="flex space-x-6 mt-8">
-            {CONTACT_CONTENT.social_links.map((link, index) => {
+            {contactData.socialLinks?.map((link, index) => {
               const Icon = iconMap[link.icon];
               return (
                 <motion.a
@@ -80,7 +94,7 @@ const Contact = () => {
                   variants={iconVariants}
                   custom={1.0 + index * 0.2}
                   href={link.link}
-                  key={link.platform}
+                  key={link.id}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.aria_label}

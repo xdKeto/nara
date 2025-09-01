@@ -1,0 +1,46 @@
+{
+  "data": {
+    "id": 4,
+    "documentId": "jm4smrvn32j9npydsheluaok",
+    "createdAt": "2025-09-01T05:05:37.811Z",
+    "updatedAt": "2025-09-01T05:44:32.154Z",
+    "publishedAt": "2025-09-01T05:44:32.431Z",
+    "homePage": {
+      "id": 4,
+      "bigTitle": "My Portfolio",
+      "homeCategories": {
+        "title": "asdasda",
+        "thumbnail": "this is a image",
+        "detailPage": {
+          "title": "asdasdas",
+          "images": [{ "title": "asda", "thumbnail": "this is an image too", "description": "asdfada", "madeIn": "madein", "carouselImage": ["image", "image"] }]
+        }
+      }
+    },
+    "resumePage": {
+      "id": 3,
+      "name": "NARASATYA JOY W.",
+      "role": "Junior 3d artist",
+      "city": "Surabaya, Indonesia",
+      "skils": ["skill", "skill"],
+      "experience": [
+        {"yearRange": "asdfasd", "title": "sasdfa", "role": "asdfad", "subtitile": "asdas", "location": "asdas"}
+      ],
+      "softwareIcons": ["image of software icon logo", "image "]
+    },
+    "contactPage": {
+      "id": 2,
+      "title": "CONTACT ME",
+      "thumbnail": "this is an image",
+      "email": "narasatya2004@gmail.com",
+      "socialLinks": ["links"]
+    },
+    "wipPage": {
+      "id": 2,
+      "wips": [
+        {"title": "asdas", "description": "asda", "image": "this is an image"}
+      ]
+    }
+  },
+  "meta": {}
+}

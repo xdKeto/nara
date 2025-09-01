@@ -6,6 +6,7 @@ import Resume from "./components/Resume";
 import Contact from "./components/Contact";
 import Wip from "./components/Wip";
 import { Analytics } from "@vercel/analytics/react";
+import { FetchDataProvider } from "./hooks/FetchData";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
@@ -27,14 +28,14 @@ function App() {
   }
 
   return (
-    <>
+    <FetchDataProvider>
       <Analytics />
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden max-w-5xl mx-auto relative z-10 justify-items-center">
+      <div className="pt-24 pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden mx-auto relative z-10 justify-items-center">
         <BodyComponent />
       </div>
       <Footer />
-    </>
+    </FetchDataProvider>
   );
 }
 

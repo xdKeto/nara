@@ -1,9 +1,12 @@
 import { useState } from "react";
-import { WIP_CONTENT } from "../constants";
+import { getWipPageData } from "../constants";
+import { getStrapiURL } from "../utils/api";
 
 const Wip = () => {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
+
+  const wipData = getWipPageData();
 
   const openViewer = (img) => {
     setCurrentImage(img);
@@ -15,17 +18,36 @@ const Wip = () => {
     setCurrentImage(null);
   };
 
+  // Early return if data is not available
+  if (!wipData) {
+    return (
+      <section className="select-none">
+        <div className="px-6">
+          <div className="text-center py-8">
+            <p className="text-gray-500">Loading WIP data...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="select-none">
+    <section className="select-none max-w-5xl">
       <div className="px-6">
-        {WIP_CONTENT.map((wip, index) => (
+        {wipData.wips?.map((wip, index) => (
           // framer motion layer
-          <div key={index} className="mb-4">
-            <h1 className="text-black my-2 font-semibold">WIP {index+1}</h1>
+          <div key={wip.id} className="mb-4">
+            <h1 className="text-black my-2 font-semibold">{wip.title}</h1>
             <h3 className="text-black">{wip.description}</h3>
 
             <div className="w-full py-4 font-medium">
-              <img src={wip.image} loading="lazy" alt="WIP Image" className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105" onClick={() => openViewer(wip.image)} />
+              <img
+                src={getStrapiURL(wip.image?.url)}
+                loading="lazy"
+                alt={`WIP Image - ${wip.title}`}
+                className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105"
+                  onClick={() => openViewer(getStrapiURL(wip.image?.url))}
+              />
             </div>
           </div>
         ))}
