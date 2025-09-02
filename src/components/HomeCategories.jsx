@@ -81,72 +81,90 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       {/* pattern for the category images (dynamic data, same grid pattern) */}
       <div className="mx-auto space-y-4 px-8">
         {images[0] && (
-          <img
-            src={images[0].mainImage}
-            loading="lazy"
-            alt={images[0].title}
-            className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-            onClick={() => openViewer(images[0])}
-          />
+          <div>
+            <img
+              src={images[0].mainImage}
+              loading="lazy"
+              alt={images[0].title}
+              className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+              onClick={() => openViewer(images[0])}
+            />
+            <h1 className="text-black font-semibold text-xl md:text-2xl">{images[0].title}</h1>
+          </div>
         )}
 
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
             {images[1] && (
-              <img
-                src={images[1].mainImage}
-                loading="lazy"
-                alt={images[1].title}
-                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                onClick={() => openViewer(images[1])}
-              />
+              <div>
+                <img
+                  src={images[1].mainImage}
+                  loading="lazy"
+                  alt={images[1].title}
+                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                  onClick={() => openViewer(images[1])}
+                />
+                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[1].title}</h1>
+              </div>
             )}
           </div>
           <div className="col-span-8">
             {images[2] && (
-              <img
-                src={images[2].mainImage}
-                loading="lazy"
-                alt={images[2].title}
-                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                onClick={() => openViewer(images[2])}
-              />
+              <div>
+                <img
+                  src={images[2].mainImage}
+                  loading="lazy"
+                  alt={images[2].title}
+                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                  onClick={() => openViewer(images[2])}
+                />
+                <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{images[2].title}</h1>
+              </div>
             )}
           </div>
 
           <div className="col-span-12">
             {images[3] && (
-              <img
-                src={images[3].mainImage}
-                loading="lazy"
-                alt={images[3].title}
-                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                onClick={() => openViewer(images[3])}
-              />
+              <div>
+                <img
+                  src={images[3].mainImage}
+                  loading="lazy"
+                  alt={images[3].title}
+                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                  onClick={() => openViewer(images[3])}
+                />
+                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[3].title}</h1>
+              </div>
             )}
           </div>
 
           <div className="col-span-8">
             {images[4] && (
-              <img
-                src={images[4].mainImage}
-                loading="lazy"
-                alt={images[4].title}
-                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                onClick={() => openViewer(images[4])}
-              />
+              <div>
+                <img
+                  src={images[4].mainImage}
+                  loading="lazy"
+                  alt={images[4].title}
+                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                  onClick={() => openViewer(images[4])}
+                />
+                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[4].title}</h1>
+              </div>
             )}
           </div>
 
           <div className="col-span-4">
             {images[5] && (
-              <img
-                src={images[5].mainImage}
-                loading="lazy"
-                alt={images[5].title}
-                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                onClick={() => openViewer(images[5])}
-              />
+              <div>
+                <img
+                  src={images[5].mainImage}
+                  loading="lazy"
+                  alt={images[5].title}
+                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                  onClick={() => openViewer(images[5])}
+                />
+                <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{images[5].title}</h1>
+              </div>
             )}
           </div>
         </div>
