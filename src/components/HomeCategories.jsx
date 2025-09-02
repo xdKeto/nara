@@ -53,6 +53,9 @@ const HomeCategories = () => {
 
   return (
     <section>
+      {/* category title here */}
+      <h1></h1> 
+      {/* pattern for the category images */}
       <div className="mx-auto space-y-4 max-w-5xl px-4">
         <img
           src={HOME_CONTENT.images[0].mainImage}

@@ -5,7 +5,7 @@ export const FetchDataContext = createContext({ data: null, loading: true, error
 
 export const FetchDataProvider = ({ children }) => {
   const { data, loading, error } = useFetch(
-    "/api/global?pLevel"
+    "/api/global?pLevel=6"
   );
   return <FetchDataContext.Provider value={{ data, loading, error }}>{children}</FetchDataContext.Provider>;
 };

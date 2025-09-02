@@ -62,7 +62,7 @@ const Contact = () => {
   }
 
   return (
-    <section className="px-6 select-none">
+    <section className="pt-24 px-6 select-none">
       <motion.div initial="hidden" animate="visible" variants={containerVariants} className="will-change-transform relative z-10 flex flex-col-reverse md:flex-row text-white md:mt-6 space-y-4 md:space-y-0">
         <TiltedCard
           imageSrc={getStrapiURL(contactData.thumbnail?.url)}

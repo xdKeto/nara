@@ -3,6 +3,7 @@ import HomeSkeleton from "./HomeSkeleton";
 import { div } from "framer-motion/client";
 import { useFetchData } from "../hooks/FetchData";
 import { updateGlobalData, getHomePageData, getContactPageData } from "../constants";
+import { getStrapiURL } from "../utils/api";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -55,22 +56,35 @@ const Home = () => {
   const homePageData = getHomePageData();
   const contactPageData = getContactPageData();
 
+  console.log(homePageData?.bigTitle);
+
   return (
     <section className="select-none">
-      <div className="px-6">
-        <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">{homePageData?.bigTitle || "Loading..."}</h1>
-        <p className="text-gray-600 mb-8">{homePageData ? "Data loaded successfully" : "No data available"}</p>
-        {!homePageData && !fetchLoading && (
-          <div className="bg-yellow-100 p-4 rounded-lg">
-            <p className="text-yellow-800">
-              <strong>Debug Info:</strong>
-              <br />- Data: {JSON.stringify(data)}
-              <br />- Loading: {fetchLoading}
-              <br />- Error: {error}
-              <br />- Home Page Data: {JSON.stringify(homePageData)}
-            </p>
-          </div>
-        )}
+      <div className="relative">
+        {homePageData?.bigImage?.url && <img src={getStrapiURL(homePageData.bigImage.url)} alt="Home Page Image" className="w-full h-screen md:h-auto object-cover" />}
+        <h1 className="absolute top-28 md:left-18 left-8 text-white text-5xl md:text-9xl tracking-tight font-extrabold mb-4 text-left drop-shadow-lg whitespace-pre-line">{homePageData?.bigTitle || "Loading..."}</h1>
+      </div>
+
+      <div className="p-6 md:p-16">
+        {/* list of categories */}
+        <div className="space-y-8">
+          {homePageData?.homeCategories?.map((category, index) => (
+            <div key={category.id} className="relative group bg-gray-500">
+              {/* Category image container */}
+              <div className="relative overflow-hidden">
+                {category.thumbnail?.[0]?.url && <img src={getStrapiURL(category.thumbnail[0].url)} alt={category.title} className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105" />}
+
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+                {/* Category title - alternating left/right positioning */}
+                <div className={`absolute bottom-4 ${index % 2 === 0 ? "right-6" : "left-6"}`}>
+                  <h2 className="text-white text-3xl md:text-7xl font-extrabold tracking-tight drop-shadow-lg">{category.title}</h2>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

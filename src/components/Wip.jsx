@@ -32,7 +32,7 @@ const Wip = () => {
   }
 
   return (
-    <section className="select-none max-w-5xl">
+    <section className="pt-24 select-none max-w-5xl">
       <div className="px-6">
         {wipData.wips?.map((wip, index) => (
           // framer motion layer
