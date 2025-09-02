@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import HomeSkeleton from "./HomeSkeleton";
+import LoadingScreen from "./LoadingScreen";
 import { div } from "framer-motion/client";
 import { useFetchData } from "../hooks/FetchData";
 import { updateGlobalData, getHomePageData, getContactPageData } from "../constants";
@@ -26,7 +26,7 @@ const imageVariants = {
   },
 };
 
-const Home = () => {
+const Home = ({ onOpenCategory }) => {
   const { data, loading: fetchLoading, error } = useFetchData();
 
   useEffect(() => {
@@ -37,7 +37,7 @@ const Home = () => {
   }, [data, fetchLoading, error]);
 
   if (fetchLoading) {
-    return <HomeSkeleton />;
+    return <LoadingScreen />;
   }
 
   if (error) {
@@ -56,33 +56,33 @@ const Home = () => {
   const homePageData = getHomePageData();
   const contactPageData = getContactPageData();
 
-  console.log(homePageData?.bigTitle);
+  // console.log(homePageData?.bigTitle);
 
   return (
     <section className="select-none">
       <div className="relative">
         {homePageData?.bigImage?.url && <img src={getStrapiURL(homePageData.bigImage.url)} alt="Home Page Image" className="w-full h-screen md:h-auto object-cover" />}
-        <h1 className="absolute top-28 md:left-18 left-8 text-white text-5xl md:text-9xl tracking-tight font-extrabold mb-4 text-left drop-shadow-lg whitespace-pre-line">{homePageData?.bigTitle || "Loading..."}</h1>
+        <h1 className="absolute top-28 md:left-18 left-8 text-white text-5xl md:text-9xl tracking-tight font-extrabold mb-4 text-left drop-shadow-lg whitespace-pre-line">{homePageData?.bigTitle}</h1>
       </div>
 
       <div className="p-6 md:p-16">
         {/* list of categories */}
         <div className="space-y-8">
           {homePageData?.homeCategories?.map((category, index) => (
-            <div key={category.id} className="relative group bg-gray-500">
-              {/* Category image container */}
-              <div className="relative overflow-hidden">
+            <button
+              key={category.id}
+              type="button"
+              onClick={() => typeof onOpenCategory === "function" && onOpenCategory(category)}
+              className="relative group w-full text-left focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black"
+            >
+              <div className="relative overflow-hidden bg-gray-500">
                 {category.thumbnail?.[0]?.url && <img src={getStrapiURL(category.thumbnail[0].url)} alt={category.title} className="w-full h-64 md:h-80 object-cover transition-transform duration-500 group-hover:scale-105" />}
-
-                {/* Overlay for better text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                {/* Category title - alternating left/right positioning */}
                 <div className={`absolute bottom-4 ${index % 2 === 0 ? "right-6" : "left-6"}`}>
                   <h2 className="text-white text-3xl md:text-7xl font-extrabold tracking-tight drop-shadow-lg">{category.title}</h2>
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 import { getResumePageData } from "../constants";
 import { motion } from "framer-motion";
 import { getStrapiURL } from "../utils/api";
+import { useEffect } from "react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -54,6 +55,9 @@ const childVariants = {
 };
 
 const Resume = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const resumeData = getResumePageData();
 
   // Early return if data is not available

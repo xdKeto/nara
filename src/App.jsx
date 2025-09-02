@@ -11,7 +11,7 @@ import HomeCategories from "./components/HomeCategories";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("home");
-  const [selectedCategory, setSelectedCategory] = useState(null)
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   let BodyComponent;
   switch (currentPage) {
@@ -24,9 +24,12 @@ function App() {
     case "wip":
       BodyComponent = Wip;
       break;
+    case "category":
+      BodyComponent = () => <HomeCategories category={selectedCategory} setCurrentPage={setCurrentPage} />;
+      break;
     case "home":
     default:
-      BodyComponent = Home;
+      BodyComponent = () => <Home onOpenCategory={(cat) => { setSelectedCategory(cat); setCurrentPage("category"); }} />;
   }
 
   return (

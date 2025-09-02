@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import { FaXTwitter } from "react-icons/fa6";
 import { getStrapiURL } from "../utils/api";
+import { useEffect } from "react";
 
 // import icons from "react-icons/fa"
 
@@ -48,6 +49,9 @@ const iconMap = {
 };
 
 const Contact = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const contactData = getContactPageData();
 
   // Early return if data is not available

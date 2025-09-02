@@ -1,6 +1,10 @@
-import { section } from "framer-motion/client";
+import { useEffect, useRef, useState } from "react";
+import { getStrapiURL } from "../utils/api";
 
-const HomeCategories = () => {
+const HomeCategories = ({ category, setCurrentPage }) => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -22,10 +26,17 @@ const HomeCategories = () => {
     }
   }, [activeImageIndex, viewerOpen]);
 
+  const images = (category?.detailPage?.images || []).map((img) => ({
+    title: img.title,
+    description: img.description,
+    madeIn: img.madeIn,
+    mainImage: getStrapiURL(img?.thumbnail?.url),
+    carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
+  }));
 
   const openViewer = (item) => {
     setSelectedItem(item);
-    setActiveImageIndex(0); // Start with the main image
+    setActiveImageIndex(0);
     setViewerOpen(true);
   };
 
@@ -53,66 +64,90 @@ const HomeCategories = () => {
 
   return (
     <section>
-      {/* category title here */}
-      <h1></h1> 
-      {/* pattern for the category images */}
-      <div className="mx-auto space-y-4 max-w-5xl px-4">
-        <img
-          src={HOME_CONTENT.images[0].mainImage}
-          loading="lazy"
-          alt={HOME_CONTENT.images[0].title}
-          className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-          onClick={() => openViewer(HOME_CONTENT.images[0])}
-        />
+      {/* breadcrumbs */}
+      <div className="max-w-5xl mx-auto px-4 pt-24">
+        <nav className="text-sm text-gray-600">
+          <button type="button" className="hover:underline text-gray-900 font-bold" onClick={() => (typeof setCurrentPage === "function" ? setCurrentPage("home") : window.history.back())}>
+            Home
+          </button>
+          <span className="mx-2">&gt;</span>
+          <span className="text-gray-900 font-bold ">{category?.title || ""}</span>
+        </nav>
+      </div>
+
+      {/* centered category title */}
+      <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{category?.title || ""}</h1>
+
+      {/* pattern for the category images (dynamic data, same grid pattern) */}
+      <div className="mx-auto space-y-4 px-8">
+        {images[0] && (
+          <img
+            src={images[0].mainImage}
+            loading="lazy"
+            alt={images[0].title}
+            className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+            onClick={() => openViewer(images[0])}
+          />
+        )}
 
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-4">
-            <img
-              src={HOME_CONTENT.images[1].mainImage}
-              loading="lazy"
-              alt={HOME_CONTENT.images[1].title}
-              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(HOME_CONTENT.images[1])}
-            />
+            {images[1] && (
+              <img
+                src={images[1].mainImage}
+                loading="lazy"
+                alt={images[1].title}
+                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(images[1])}
+              />
+            )}
           </div>
           <div className="col-span-8">
-            <img
-              src={HOME_CONTENT.images[2].mainImage}
-              loading="lazy"
-              alt={HOME_CONTENT.images[2].title}
-              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(HOME_CONTENT.images[2])}
-            />
+            {images[2] && (
+              <img
+                src={images[2].mainImage}
+                loading="lazy"
+                alt={images[2].title}
+                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(images[2])}
+              />
+            )}
           </div>
 
           <div className="col-span-12">
-            <img
-              src={HOME_CONTENT.images[3].mainImage}
-              loading="lazy"
-              alt={HOME_CONTENT.images[3].title}
-              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(HOME_CONTENT.images[3])}
-            />
+            {images[3] && (
+              <img
+                src={images[3].mainImage}
+                loading="lazy"
+                alt={images[3].title}
+                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(images[3])}
+              />
+            )}
           </div>
 
           <div className="col-span-8">
-            <img
-              src={HOME_CONTENT.images[4].mainImage}
-              loading="lazy"
-              alt={HOME_CONTENT.images[4].title}
-              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(HOME_CONTENT.images[4])}
-            />
+            {images[4] && (
+              <img
+                src={images[4].mainImage}
+                loading="lazy"
+                alt={images[4].title}
+                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(images[4])}
+              />
+            )}
           </div>
 
           <div className="col-span-4">
-            <img
-              src={HOME_CONTENT.images[5].mainImage}
-              loading="lazy"
-              alt={HOME_CONTENT.images[5].title}
-              className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(HOME_CONTENT.images[5])}
-            />
+            {images[5] && (
+              <img
+                src={images[5].mainImage}
+                loading="lazy"
+                alt={images[5].title}
+                className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(images[5])}
+              />
+            )}
           </div>
         </div>
       </div>
@@ -126,9 +161,6 @@ const HomeCategories = () => {
             <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
           </div>
           <div className="w-full lg:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
-            {/* <button onClick={prevImage} className="z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
-              &#8249;
-            </button> */}
             <div id="pictureContainer" className="relative w-full lg:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
               <div className="relative">
                 <button onClick={prevImage} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-black/50 text-white py-2 lg:py-8 px-2 rounded-lg text-4xl sm:text-5xl font-bold">
@@ -141,7 +173,6 @@ const HomeCategories = () => {
                     className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
                     onClick={(e) => e.stopPropagation()}
                   />
-                  {/* Thumbnails for desktop */}
                   <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
                     {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
                       <img
@@ -163,9 +194,6 @@ const HomeCategories = () => {
                 </button>
               </div>
             </div>
-            {/* <button onClick={nextImage} className="z-10 bg-black/50 text-white py-2 lg:py-8 px-2  rounded-lg text-4xl sm:text-5xl  font-bold">
-              &#8250;
-            </button> */}
           </div>
         </div>
       )}

@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getWipPageData } from "../constants";
 import { getStrapiURL } from "../utils/api";
 
 const Wip = () => {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
@@ -46,7 +49,7 @@ const Wip = () => {
                 loading="lazy"
                 alt={`WIP Image - ${wip.title}`}
                 className="rounded-xl w-full h-full cursor-pointer will-change-transform transition-transform hover:scale-105"
-                  onClick={() => openViewer(getStrapiURL(wip.image?.url))}
+                onClick={() => openViewer(getStrapiURL(wip.image?.url))}
               />
             </div>
           </div>
