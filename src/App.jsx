@@ -8,10 +8,11 @@ import Wip from "./components/Wip";
 import { Analytics } from "@vercel/analytics/react";
 import { FetchDataProvider } from "./hooks/FetchData";
 import HomeCategories from "./components/HomeCategories";
+import LoadingScreen from "./components/LoadingScreen";
+import { useFetchData } from "./hooks/FetchData";
 
-function App() {
-  const [currentPage, setCurrentPage] = useState("home");
-  const [selectedCategory, setSelectedCategory] = useState(null);
+function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelectedCategory }) {
+  const { loading } = useFetchData();
 
   let BodyComponent;
   switch (currentPage) {
@@ -33,13 +34,30 @@ function App() {
   }
 
   return (
-    <FetchDataProvider>
+    <>
       <Analytics />
-      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} disabled={loading} />
       <div className="pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden mx-auto relative z-10 justify-items-center">
         <BodyComponent />
       </div>
       <Footer />
+      {loading && <LoadingScreen />}
+    </>
+  );
+}
+
+function App() {
+  const [currentPage, setCurrentPage] = useState("home");
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  return (
+    <FetchDataProvider>
+      <AppContent
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+        selectedCategory={selectedCategory}
+        setSelectedCategory={setSelectedCategory}
+      />
     </FetchDataProvider>
   );
 }

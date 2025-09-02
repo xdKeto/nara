@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import LoadingScreen from "./LoadingScreen";
 import { motion } from "framer-motion";
 import { useFetchData } from "../hooks/FetchData";
-import { updateGlobalData, getHomePageData, getContactPageData } from "../constants";
 import { getStrapiURL } from "../utils/api";
 
 const textVariants = {
@@ -19,7 +17,7 @@ const containerVariants = {
 };
 
 const imageVariants = {
-  hidden: { clipPath: "inset(0 50% 0 50%" },
+  hidden: { clipPath: "inset(0 50% 0 50%)" },
   visible: {
     clipPath: "inset(0 0% 0 0%)",
     transition: { duration: 1.2, ease: "easeInOut" },
@@ -30,27 +28,13 @@ const Home = ({ onOpenCategory }) => {
   const { data, loading: fetchLoading, error } = useFetchData();
   const [heroReady, setHeroReady] = useState(false);
 
-  useEffect(() => {
-    // Update global data when fetch data changes
-    if (data) {
-      updateGlobalData({ data, loading: fetchLoading, error });
-    }
-  }, [data, fetchLoading, error]);
+  const homePageData = data?.homePage || null;
 
-  // Get data from global variable
-  const homePageData = getHomePageData();
-  const contactPageData = getContactPageData();
-
-  // If there's no image, don't block the hero animation
   useEffect(() => {
     if (homePageData && !homePageData?.bigImage?.url) {
       setHeroReady(true);
     }
   }, [homePageData]);
-
-  if (fetchLoading) {
-    return <LoadingScreen />;
-  }
 
   if (error) {
     return (
