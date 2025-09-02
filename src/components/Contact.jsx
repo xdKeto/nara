@@ -1,10 +1,10 @@
 import { FaDiscord, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
-import { getContactPageData } from "../constants";
 import { motion } from "framer-motion";
 import TiltedCard from "./TiltedCard/TiltedCard";
 import { FaXTwitter } from "react-icons/fa6";
 import { getStrapiURL } from "../utils/api";
 import { useEffect } from "react";
+import { useFetchData } from "../hooks/FetchData";
 
 // import icons from "react-icons/fa"
 
@@ -22,7 +22,7 @@ const containerVariants = {
 };
 
 const imageVariants = {
-  hidden: { clipPath: "inset(0 50% 0 50%" },
+  hidden: { clipPath: "inset(0 50% 0 50%)" },
   visible: {
     clipPath: "inset(0 0% 0 0%)",
     transition: { duration: 1.2, ease: "easeInOut" },
@@ -52,9 +52,9 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
-  const contactData = getContactPageData();
+  const { data } = useFetchData();
+  const contactData = data?.contactPage || null;
 
-  // Early return if data is not available
   if (!contactData) {
     return (
       <section className="px-6 select-none">

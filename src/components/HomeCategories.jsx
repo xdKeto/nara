@@ -1,10 +1,23 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
 import { getStrapiURL } from "../utils/api";
+import { useFetchData } from "../hooks/FetchData";
 
 const HomeCategories = ({ category, setCurrentPage }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
+  const { data } = useFetchData();
+
+  // Rehydrate category from the latest context data using its id, if available
+  const sourceCategory = useMemo(() => {
+    const allCats = data?.homePage?.homeCategories || [];
+    if (category?.id) {
+      const found = allCats.find((c) => c.id === category.id);
+      return found || category;
+    }
+    return category || null;
+  }, [data, category]);
+
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
@@ -26,7 +39,24 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     }
   }, [activeImageIndex, viewerOpen]);
 
-  const images = (category?.detailPage?.images || []).map((img) => ({
+  if (!sourceCategory) {
+    return (
+      <section className="select-none">
+        <div className="max-w-5xl mx-auto px-4 pt-24">
+          <nav className="text-sm text-gray-600">
+            <button type="button" className="hover:underline text-gray-900 font-bold" onClick={() => (typeof setCurrentPage === "function" ? setCurrentPage("home") : window.history.back())}>
+              Home
+            </button>
+            <span className="mx-2">&gt;</span>
+            <span className="text-gray-900 font-bold ">Category</span>
+          </nav>
+          <p className="mt-6 text-gray-500">Category not found.</p>
+        </div>
+      </section>
+    );
+  }
+
+  const images = (sourceCategory?.detailPage?.images || []).map((img) => ({
     title: img.title,
     description: img.description,
     madeIn: img.madeIn,
@@ -80,12 +110,12 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             Home
           </button>
           <span className="mx-2">&gt;</span>
-          <span className="text-gray-900 font-bold ">{category?.title || ""}</span>
+          <span className="text-gray-900 font-bold ">{sourceCategory?.title || ""}</span>
         </nav>
       </div>
 
       {/* centered category title */}
-      <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{category?.title || ""}</h1>
+      <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{sourceCategory?.title || ""}</h1>
 
       {/* pattern for the category images (dynamic data, same grid pattern) */}
       {groups.map((group, gi) => (

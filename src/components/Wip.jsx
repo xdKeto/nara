@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getWipPageData } from "../constants";
 import { getStrapiURL } from "../utils/api";
+import { useFetchData } from "../hooks/FetchData";
 
 const Wip = () => {
   useEffect(() => {
@@ -9,7 +10,8 @@ const Wip = () => {
   const [viewerOpen, setViewerOpen] = useState(false);
   const [currentImage, setCurrentImage] = useState(null);
 
-  const wipData = getWipPageData();
+  const {data} = useFetchData()
+  const wipData = data?.wipPage;
 
   const openViewer = (img) => {
     setCurrentImage(img);
