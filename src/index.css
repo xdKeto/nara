@@ -35,6 +35,15 @@ body::-webkit-scrollbar {
   scrollbar-width: none; /* Firefox */
 }
 
+.my-scroll {
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.my-scroll::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes floatY {
   0%,
   100% {
