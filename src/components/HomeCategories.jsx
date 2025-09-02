@@ -72,7 +72,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   const groups = chunk6(images);
 
   return (
-    <section>
+    <section className="select-none">
       {/* breadcrumbs */}
       <div className="max-w-5xl mx-auto px-4 pt-24">
         <nav className="text-sm text-gray-600">
@@ -96,7 +96,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                 src={group[0].mainImage}
                 loading="lazy"
                 alt={group[0].title}
-                className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                className="object-cover w-full rounded-xl h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                 onClick={() => openViewer(group[0])}
               />
               <h1 className="text-black font-semibold text-xl md:text-2xl">{group[0].title}</h1>
@@ -111,7 +111,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[1].mainImage}
                     loading="lazy"
                     alt={group[1].title}
-                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[1])}
                   />
                   <h1 className="text-black font-semibold text-xl md:text-2xl">{group[1].title}</h1>
@@ -126,7 +126,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[2].mainImage}
                     loading="lazy"
                     alt={group[2].title}
-                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[2])}
                   />
                   <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[2].title}</h1>
@@ -141,7 +141,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[3].mainImage}
                     loading="lazy"
                     alt={group[3].title}
-                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[3])}
                   />
                   <h1 className="text-black font-semibold text-xl md:text-2xl">{group[3].title}</h1>
@@ -156,7 +156,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[4].mainImage}
                     loading="lazy"
                     alt={group[4].title}
-                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[4])}
                   />
                   <h1 className="text-black font-semibold text-xl md:text-2xl">{group[4].title}</h1>
@@ -171,7 +171,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[5].mainImage}
                     loading="lazy"
                     alt={group[5].title}
-                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[5])}
                   />
                   <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[5].title}</h1>
@@ -187,8 +187,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
         <div className="fixed inset-0 bg-black/99 flex flex-col lg:flex-row items-center justify-start pt-32 md:pt-0 md:justify-center z-50 p-4 md:p-8 lg:p-16 gap-8 xl:gap-16" onClick={closeViewer}>
           <div className="w-full lg:w-3/8 md:py-8 xl:pe-32">
             <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
-            <h1 className="text-white text-sm md:text-xl font-semibold mt-2 lg:mt-8"> {selectedItem.description} </h1>
-            <h1 className="text-white text-xs  md:text-xl mt-8 font-medium"> {selectedItem.madeIn} </h1>
+            <h1 className="text-white text-sm md:text-xl font-extralight mt-2 lg:mt-8"> {selectedItem.description} </h1>
+            <h1 className="text-white text-xs  md:text-xl mt-8 font-extralight"> {selectedItem.madeIn} </h1>
           </div>
           <div className="w-full lg:w-1/2 flex mt-2 md:mt-8 justify-center items-center">
             <div id="pictureContainer" className="relative w-full lg:w-1/2 flex mt-2 md:mt-8 justify-center items-center">

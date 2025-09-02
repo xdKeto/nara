@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import LoadingScreen from "./LoadingScreen";
-import { div } from "framer-motion/client";
+import { motion } from "framer-motion";
 import { useFetchData } from "../hooks/FetchData";
 import { updateGlobalData, getHomePageData, getContactPageData } from "../constants";
 import { getStrapiURL } from "../utils/api";
@@ -28,6 +28,7 @@ const imageVariants = {
 
 const Home = ({ onOpenCategory }) => {
   const { data, loading: fetchLoading, error } = useFetchData();
+  const [heroReady, setHeroReady] = useState(false);
 
   useEffect(() => {
     // Update global data when fetch data changes
@@ -35,6 +36,17 @@ const Home = ({ onOpenCategory }) => {
       updateGlobalData({ data, loading: fetchLoading, error });
     }
   }, [data, fetchLoading, error]);
+
+  // Get data from global variable
+  const homePageData = getHomePageData();
+  const contactPageData = getContactPageData();
+
+  // If there's no image, don't block the hero animation
+  useEffect(() => {
+    if (homePageData && !homePageData?.bigImage?.url) {
+      setHeroReady(true);
+    }
+  }, [homePageData]);
 
   if (fetchLoading) {
     return <LoadingScreen />;
@@ -52,20 +64,35 @@ const Home = ({ onOpenCategory }) => {
     );
   }
 
-  // Get data from global variable
-  const homePageData = getHomePageData();
-  const contactPageData = getContactPageData();
-
-  // console.log(homePageData?.bigTitle);
-
   return (
     <section className="select-none">
-      <div className="relative">
-        {homePageData?.bigImage?.url && <img src={getStrapiURL(homePageData.bigImage.url)} alt="Home Page Image" className="w-full h-screen md:h-auto object-cover" />}
-        <h1 className="absolute top-28 md:left-18 left-8 text-white text-5xl md:text-9xl tracking-tight font-extrabold mb-4 text-left drop-shadow-lg whitespace-pre-line">{homePageData?.bigTitle}</h1>
-      </div>
+      <motion.div className="relative" id="hero" initial="hidden" animate={heroReady ? "visible" : "hidden"} variants={containerVariants}>
+        {homePageData?.bigImage?.url && (
+          <motion.img
+            src={getStrapiURL(homePageData.bigImage.url)}
+            alt="Home Page Image"
+            className="w-full h-screen md:h-auto object-cover will-change-transform"
+            variants={imageVariants}
+            onLoad={() => setHeroReady(true)}
+            onError={() => setHeroReady(true)}
+          />
+        )}
+        <motion.h1 variants={textVariants} className="absolute top-28 md:left-18 left-8 text-white text-5xl md:text-9xl tracking-tight font-extrabold mb-4 text-left whitespace-pre-line will-change-transform">
+          {homePageData?.bigTitle}
+        </motion.h1>
+        {/* Floating center "See" button */}
+        <motion.button
+          type="button"
+          onClick={() => document.getElementById("home-categories")?.scrollIntoView({ behavior: "smooth" })}
+          variants={textVariants}
+          className="absolute left-1/2 bottom-20 md:bottom-36 -translate-x-1/2 -translate-y-1/2 z-10 bg-white text-black rounded-lg px-8 py-2 shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105 motion-safe:animate-bounce font-semibold animate-float will-change-transform"
+          aria-label="See categories"
+        >
+          EXPLORE
+        </motion.button>
+      </motion.div>
 
-      <div className="p-6 md:p-16">
+      <div className="p-6 md:p-16" id="home-categories">
         {/* list of categories */}
         <div className="space-y-8">
           {homePageData?.homeCategories?.map((category, index) => (
