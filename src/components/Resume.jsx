@@ -72,7 +72,7 @@ const Resume = () => {
   }
 
   return (
-    <section className="pt-24 px-6 select-none" class="my-scroll">
+    <section className="pt-24 px-6 select-none" >
       <motion.div initial="hidden" animate="visible" variants={containerVariants} className="will-change-transform relative z-10 flex flex-col-reverse md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4">
         <motion.div initial="hidden" animate="visible" variants={imageVariants} className="w-full md:w-1/2 py-4 px-8 justify-items-center md:justify-items-end">
           <img src={getStrapiURL(resumeData.image?.url)} loading="lazy" alt="Resume Image" className="rounded-xl w-[250px] h-[250px] object-cover max-w-full aspect-square" />

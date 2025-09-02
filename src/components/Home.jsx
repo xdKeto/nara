@@ -65,7 +65,7 @@ const Home = ({ onOpenCategory }) => {
   }
 
   return (
-    <section className="select-none" class="my-scroll">
+    <section className="select-none">
       <motion.div className="relative" id="hero" initial="hidden" animate={heroReady ? "visible" : "hidden"} variants={containerVariants}>
         {homePageData?.bigImage?.url && (
           <motion.img
