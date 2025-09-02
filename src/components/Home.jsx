@@ -85,7 +85,7 @@ const Home = ({ onOpenCategory }) => {
           type="button"
           onClick={() => document.getElementById("home-categories")?.scrollIntoView({ behavior: "smooth" })}
           variants={textVariants}
-          className="absolute left-1/2 bottom-20 md:bottom-36 -translate-x-1/2 -translate-y-1/2 z-10 bg-white text-black rounded-lg px-8 py-2 shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105 motion-safe:animate-bounce font-semibold animate-float will-change-transform"
+          className="absolute left-1/2 bottom-20 md:bottom-36 -translate-x-1/2 -translate-y-1/2 z-10 bg-white text-black border-2 border-black rounded-none px-8 py-3 transition-transform duration-300 hover:scale-105 motion-safe:animate-bounce animate-float font-extrabold will-change-transform"
           aria-label="See categories"
         >
           EXPLORE

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-const API_BASE_URL = "http://localhost:1337"; // Your Strapi API URL
-// const API_BASE_URL = import.meta.env.VITE_STRAPI_API_URL;
+// const API_BASE_URL = "http://localhost:1337"; // Your Strapi API URL
+const API_BASE_URL = import.meta.env.VITE_STRAPI_API_URL;
 const API_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN;
 
 export const useFetch = (endpoint) => {
