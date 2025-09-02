@@ -62,6 +62,15 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     }
   };
 
+  // helper to chunk into groups of 6
+  const chunk6 = (arr) => {
+    const out = [];
+    for (let i = 0; i < arr.length; i += 6) out.push(arr.slice(i, i + 6));
+    return out;
+  };
+
+  const groups = chunk6(images);
+
   return (
     <section>
       {/* breadcrumbs */}
@@ -79,96 +88,99 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{category?.title || ""}</h1>
 
       {/* pattern for the category images (dynamic data, same grid pattern) */}
-      <div className="mx-auto space-y-4 px-8">
-        {images[0] && (
-          <div>
-            <img
-              src={images[0].mainImage}
-              loading="lazy"
-              alt={images[0].title}
-              className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-              onClick={() => openViewer(images[0])}
-            />
-            <h1 className="text-black font-semibold text-xl md:text-2xl">{images[0].title}</h1>
-          </div>
-        )}
+      {groups.map((group, gi) => (
+        <div key={gi} className="mx-auto space-y-4 px-8">
+          {group[0] && (
+            <div>
+              <img
+                src={group[0].mainImage}
+                loading="lazy"
+                alt={group[0].title}
+                className="object-cover w-full rounded-xl h-[400px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                onClick={() => openViewer(group[0])}
+              />
+              <h1 className="text-black font-semibold text-xl md:text-2xl">{group[0].title}</h1>
+            </div>
+          )}
 
-        <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-4">
-            {images[1] && (
-              <div>
-                <img
-                  src={images[1].mainImage}
-                  loading="lazy"
-                  alt={images[1].title}
-                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                  onClick={() => openViewer(images[1])}
-                />
-                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[1].title}</h1>
-              </div>
-            )}
-          </div>
-          <div className="col-span-8">
-            {images[2] && (
-              <div>
-                <img
-                  src={images[2].mainImage}
-                  loading="lazy"
-                  alt={images[2].title}
-                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                  onClick={() => openViewer(images[2])}
-                />
-                <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{images[2].title}</h1>
-              </div>
-            )}
-          </div>
+          <div className="grid grid-cols-12 gap-4">
+            <div className="col-span-4">
+              {group[1] && (
+                <div>
+                  <img
+                    src={group[1].mainImage}
+                    loading="lazy"
+                    alt={group[1].title}
+                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    onClick={() => openViewer(group[1])}
+                  />
+                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[1].title}</h1>
+                </div>
+              )}
+            </div>
 
-          <div className="col-span-12">
-            {images[3] && (
-              <div>
-                <img
-                  src={images[3].mainImage}
-                  loading="lazy"
-                  alt={images[3].title}
-                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                  onClick={() => openViewer(images[3])}
-                />
-                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[3].title}</h1>
-              </div>
-            )}
-          </div>
+            <div className="col-span-8">
+              {group[2] && (
+                <div>
+                  <img
+                    src={group[2].mainImage}
+                    loading="lazy"
+                    alt={group[2].title}
+                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    onClick={() => openViewer(group[2])}
+                  />
+                  <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[2].title}</h1>
+                </div>
+              )}
+            </div>
 
-          <div className="col-span-8">
-            {images[4] && (
-              <div>
-                <img
-                  src={images[4].mainImage}
-                  loading="lazy"
-                  alt={images[4].title}
-                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                  onClick={() => openViewer(images[4])}
-                />
-                <h1 className="text-black font-semibold text-xl md:text-2xl">{images[4].title}</h1>
-              </div>
-            )}
-          </div>
+            <div className="col-span-12">
+              {group[3] && (
+                <div>
+                  <img
+                    src={group[3].mainImage}
+                    loading="lazy"
+                    alt={group[3].title}
+                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    onClick={() => openViewer(group[3])}
+                  />
+                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[3].title}</h1>
+                </div>
+              )}
+            </div>
 
-          <div className="col-span-4">
-            {images[5] && (
-              <div>
-                <img
-                  src={images[5].mainImage}
-                  loading="lazy"
-                  alt={images[5].title}
-                  className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
-                  onClick={() => openViewer(images[5])}
-                />
-                <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{images[5].title}</h1>
-              </div>
-            )}
+            <div className="col-span-8">
+              {group[4] && (
+                <div>
+                  <img
+                    src={group[4].mainImage}
+                    loading="lazy"
+                    alt={group[4].title}
+                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    onClick={() => openViewer(group[4])}
+                  />
+                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[4].title}</h1>
+                </div>
+              )}
+            </div>
+
+            <div className="col-span-4">
+              {group[5] && (
+                <div>
+                  <img
+                    src={group[5].mainImage}
+                    loading="lazy"
+                    alt={group[5].title}
+                    className="object-cover rounded-xl w-full h-[280px] cursor-pointer transition-transform hover:scale-105 will-change-transform"
+                    onClick={() => openViewer(group[5])}
+                  />
+                  <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[5].title}</h1>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      ))}
 
       {/* Modal Photo Viewer */}
       {viewerOpen && selectedItem && (
