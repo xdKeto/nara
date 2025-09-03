@@ -104,7 +104,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   return (
     <section className="select-none">
       {/* breadcrumbs */}
-      <div className="max-w-3xl mx-auto px-4 pt-24">
+      <div className="mx-auto px-4 pt-24">
         <nav className="text-sm text-gray-600">
           <button type="button" className="hover:underline text-gray-900 font-bold" onClick={() => (typeof setCurrentPage === "function" ? setCurrentPage("home") : window.history.back())}>
             Home
