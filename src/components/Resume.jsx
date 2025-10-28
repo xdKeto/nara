@@ -1,5 +1,3 @@
-import { getResumePageData } from "../constants";
-import { motion } from "framer-motion";
 import { getStrapiURL } from "../utils/api";
 import { useEffect } from "react";
 import { useFetchData } from "../hooks/FetchData";
@@ -112,7 +110,7 @@ const Resume = () => {
         </div>
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
+      <motion.div viewport={{ once: true, amount: 0.3 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">SOFTWARE</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
         <div className="flex flex-wrap gap-3 pb-2">
@@ -129,7 +127,7 @@ const Resume = () => {
         <div className="h-1 w-32 mb-4 bg-black"></div>
 
         <motion.div className="will-change-transform space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={containerVariants2}>
-          {resumeData.experience?.map((exp, index) => (
+          {resumeData.experience?.map((exp) => (
             // framer motion layer
             <motion.div key={exp.id} variants={childVariants} className="will-change-transform">
               <div className="flex flex-col md:flex-row md:justify-between">
@@ -142,7 +140,7 @@ const Resume = () => {
                     <p className="text-sm italic font-semibold">{exp.role}</p>
                     <p className="mb-4 text-sm italic">{exp.subtitle}</p>
                     <ul className="list-disc list-inside space-y-2">
-                      {exp.description?.map((desc, index) => (
+                      {exp.description?.map((desc) => (
                         <li key={desc.id}>{desc.jobDesc}</li>
                       ))}
                     </ul>
