@@ -110,7 +110,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             Home
           </button>
           <span className="mx-2">&gt;</span>
-          <span className="text-gray-900 font-bold ">{sourceCategory?.title || ""}</span>
+          <span className="text-gray-900 font-bold ">{sourceCategory?.detailPage?.title || ""}</span>
         </nav>
       </div>
 
