@@ -127,7 +127,7 @@ const Resume = () => {
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">EXPERIENCE</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
 
-        <motion.div className="will-change-transform space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.01 }} variants={containerVariants2}>
+        <motion.div className="will-change-transform space-y-6" initial="hidden" animate="visible" variants={containerVariants}>
           {resumeData.experience?.map((exp) => (
             // framer motion layer
             <motion.div key={exp.id} variants={childVariants} className="will-change-transform">

@@ -115,7 +115,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       </div>
 
       {/* centered category title */}
-      <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{sourceCategory?.title || ""}</h1>
+      <h1 className="text-center md:text-5xl mb-4 mt-2 font-extrabold text-3xl">{sourceCategory?.detailPage?.title || ""}</h1>
 
       {/* pattern for the category images (dynamic data, same grid pattern) */}
       {groups.map((group, gi) => (
