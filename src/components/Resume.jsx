@@ -1,6 +1,7 @@
 import { getStrapiURL } from "../utils/api";
 import { useEffect } from "react";
 import { useFetchData } from "../hooks/FetchData";
+import { motion } from "framer-motion";
 
 const textVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -38,7 +39,7 @@ const iconVariants = {
 
 const containerVariants2 = {
   hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut", staggerChildren: 0.3 } },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut", staggerChildren: 0.2 } },
 };
 
 const childVariants = {
@@ -122,11 +123,11 @@ const Resume = () => {
         </div>
       </motion.div>
 
-      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.01 }} variants={textVariants} className="will-change-transform mb-6 md:mb-8">
         <h1 className="text-black text-2xl md:text-4xl font-medium tracking-tight mb-4">EXPERIENCE</h1>
         <div className="h-1 w-32 mb-4 bg-black"></div>
 
-        <motion.div className="will-change-transform space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.3 }} variants={containerVariants2}>
+        <motion.div className="will-change-transform space-y-6" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.01 }} variants={containerVariants2}>
           {resumeData.experience?.map((exp) => (
             // framer motion layer
             <motion.div key={exp.id} variants={childVariants} className="will-change-transform">
