@@ -267,7 +267,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       {/* Scroll View*/}
       {!isScroll && viewerOpen && selectedItem && (
         <div className="fixed inset-0 bg-black/99 overflow-y-auto  pt-16 md:pt-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="p-4 md:p-12 lg:p-20" onClick={closeViewer}>
+          <div className="px-4 md:px-12 lg:px-42 py-4 md:py-20 " onClick={closeViewer}>
             <h1 className="text-white text-xl md:text-4xl font-bold"> {selectedItem.title} </h1>
             <h1 className="text-white text-sm md:text-xl font-extralight mt-2"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs md:text-lg mt-2 font-extralight"> {selectedItem.madeIn} </h1>
