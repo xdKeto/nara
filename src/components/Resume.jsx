@@ -37,11 +37,6 @@ const iconVariants = {
   }),
 };
 
-const containerVariants2 = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: "easeOut", staggerChildren: 0.2 } },
-};
-
 const childVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -76,7 +71,7 @@ const Resume = () => {
     <section className="pt-24 px-6 select-none">
       <motion.div initial="hidden" animate="visible" variants={containerVariants} className="will-change-transform relative z-10 flex flex-col-reverse md:flex-row md:mt-6 space-y-4 md:space-y-0 mb-4">
         <motion.div initial="hidden" animate="visible" variants={imageVariants} className="w-full md:w-1/2 py-4 px-8 justify-items-center md:justify-items-end">
-          <img src={getStrapiURL(resumeData.image?.url)} loading="lazy" alt="Resume Image" className="rounded-xl w-[250px] h-[250px] object-cover max-w-full aspect-square" />
+          <img src={getStrapiURL(resumeData.image?.url)} loading="lazy" alt="Resume Image" className="rounded-xl w-[250px] h-[250px] object-cover object-[center_20%] max-w-full aspect-square" />
         </motion.div>
         <div className="w-full md:w-1/2 py-4 ">
           <motion.h1 initial="hidden" animate="visible" variants={textVariants} className="text-black font-semibold text-xl md:text-2xl my-4 md:my-8 ">
