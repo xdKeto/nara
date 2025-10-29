@@ -37,7 +37,7 @@ function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelected
     <>
       <Analytics />
       <Navbar currentPage={currentPage} setCurrentPage={setCurrentPage} disabled={loading} />
-      <div className="pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden mx-auto relative z-10 justify-items-center">
+      <div className="pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden mx-auto relative z-10 justify-items-center ">
         <BodyComponent />
       </div>
       <Footer />

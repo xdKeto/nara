@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+/* Add this to your CSS file */
+* {
+  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;  /* Internet Explorer and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari, Opera */
+}
+
+
 /* * {
   border: 1px solid red;
 } */

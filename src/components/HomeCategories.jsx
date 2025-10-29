@@ -20,6 +20,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
 
   const [viewerOpen, setViewerOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isScroll, setIsScroll] = useState(false);
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const thumbnailContainerRef = useRef(null);
   const thumbnailRefs = useRef([]);
@@ -41,7 +42,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
 
   if (!sourceCategory) {
     return (
-      <section className="select-none">
+      <section className="select-none ">
         <div className="max-w-5xl mx-auto px-4 pt-24">
           <nav className="text-sm text-gray-600">
             <button type="button" className="hover:underline text-gray-900 font-bold" onClick={() => (typeof setCurrentPage === "function" ? setCurrentPage("home") : window.history.back())}>
@@ -62,15 +63,20 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     madeIn: img.madeIn,
     mainImage: getStrapiURL(img?.thumbnail?.url),
     carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
+    scroll: img.scroll
   }));
 
   const openViewer = (item) => {
+    if (item.scroll) {
+      setIsScroll(true);
+    }
     setSelectedItem(item);
     setActiveImageIndex(0);
     setViewerOpen(true);
   };
 
   const closeViewer = () => {
+    setIsScroll(false);
     setViewerOpen(false);
     setSelectedItem(null);
     setActiveImageIndex(0);
@@ -213,7 +219,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       ))}
 
       {/* Modal Photo Viewer */}
-      {viewerOpen && selectedItem && (
+      {isScroll && viewerOpen && selectedItem && (
         <div className="fixed inset-0 bg-black/99 flex flex-col lg:flex-row items-center justify-start pt-32 md:pt-0 md:justify-center z-50 p-4 md:p-8 lg:p-16 gap-8 xl:gap-16" onClick={closeViewer}>
           <div className="w-full lg:w-3/8 md:py-8 xl:pe-32">
             <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
@@ -228,13 +234,13 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                 </button>
                 <div className="flex flex-col items-center ">
                   <img
-                    src={[selectedItem.mainImage, ...selectedItem.carousel][activeImageIndex]}
+                    src={selectedItem.carousel[activeImageIndex]}
                     alt="Full View"
                     className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
                     onClick={(e) => e.stopPropagation()}
                   />
                   <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
-                    {[selectedItem.mainImage, ...selectedItem.carousel].map((thumb, index) => (
+                    {selectedItem.carousel.map((thumb, index) => (
                       <img
                         key={index}
                         ref={(el) => (thumbnailRefs.current[index] = el)}
@@ -257,7 +263,32 @@ const HomeCategories = ({ category, setCurrentPage }) => {
           </div>
         </div>
       )}
-    </section>
+
+      {/* Scroll View*/}
+      {!isScroll && viewerOpen && selectedItem && (
+        <div className="fixed inset-0 bg-black/99 overflow-y-auto  pt-16 md:pt-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          <div className="p-4 md:p-12 lg:p-20" onClick={closeViewer}>
+            <h1 className="text-white text-xl md:text-4xl font-bold"> {selectedItem.title} </h1>
+            <h1 className="text-white text-sm md:text-xl font-extralight mt-2"> {selectedItem.description} </h1>
+            <h1 className="text-white text-xs md:text-lg mt-2 font-extralight"> {selectedItem.madeIn} </h1>
+
+            {/* photo viewer */}
+            <div className="flex flex-col mt-2">
+              {selectedItem.carousel.map((image, index) => (
+                <img
+                  key={index}
+                  src={image}
+                  alt={`${selectedItem.title} - Image ${index + 1}`}
+                  className="w-full object-contain mb-0"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )
+      }
+    </section >
   );
 };
 
