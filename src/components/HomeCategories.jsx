@@ -340,14 +340,14 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   }
                 }
               }}
-              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors"
+              className="fixed bottom-9 left-1/2 -translate-x-1/2 z-50 bg-white text-black p-3 md:p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors"
             >
               <motion.div
                 key={isAtBottom ? "up" : "down"}
                 animate={{ y: [0, 4, 0] }}
                 transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
               >
-                {isAtBottom ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
+                {isAtBottom ? <FaArrowUp className="w-4 h-4 md:w-5 md:h-5" /> : <FaArrowDown className="w-4 h-4 md:w-5 md:h-5" />}
               </motion.div>
             </motion.button>
           </AnimatePresence>
