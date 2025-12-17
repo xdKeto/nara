@@ -1,4 +1,6 @@
 import { useEffect, useRef, useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { getStrapiURL } from "../utils/api";
 import { useFetchData } from "../hooks/FetchData";
 
@@ -24,6 +26,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const thumbnailContainerRef = useRef(null);
   const thumbnailRefs = useRef([]);
+  const scrollContainerRef = useRef(null);
+  const [isAtBottom, setIsAtBottom] = useState(false);
 
   useEffect(() => {
     if (viewerOpen && thumbnailContainerRef.current && thumbnailRefs.current[activeImageIndex]) {
@@ -73,6 +77,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     setSelectedItem(item);
     setActiveImageIndex(0);
     setViewerOpen(true);
+    setIsAtBottom(false);
   };
 
   const closeViewer = () => {
@@ -222,7 +227,19 @@ const HomeCategories = ({ category, setCurrentPage }) => {
       {isScroll && viewerOpen && selectedItem && (
         <div className="fixed inset-0 bg-black/99 flex flex-col lg:flex-row items-center justify-start pt-32 md:pt-0 md:justify-center z-50 p-4 md:p-8 lg:p-16 gap-8 xl:gap-16" onClick={closeViewer}>
           <div className="w-full lg:w-3/8 md:py-8 xl:pe-32">
-            <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
+            <div className="flex flex-row justify-between items-center w-full">
+              <h1 className="text-white text-xl md:text-5xl font-bold"> {selectedItem.title} </h1>
+              <button
+                type="button"
+                className="bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform uppercase"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeViewer();
+                }}
+              >
+                Back
+              </button>
+            </div>
             <h1 className="text-white text-sm md:text-xl font-extralight mt-2 lg:mt-8"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs  md:text-xl mt-8 font-extralight"> {selectedItem.madeIn} </h1>
           </div>
@@ -266,9 +283,30 @@ const HomeCategories = ({ category, setCurrentPage }) => {
 
       {/* Scroll View*/}
       {!isScroll && viewerOpen && selectedItem && (
-        <div className="fixed inset-0 bg-black/99 overflow-y-auto  pt-16 md:pt-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          <div className="px-4 md:px-12 lg:px-42 py-4 md:py-20 " onClick={closeViewer}>
-            <h1 className="text-white text-xl md:text-4xl font-bold"> {selectedItem.title} </h1>
+        <div 
+          ref={scrollContainerRef}
+          onScroll={() => {
+            if (scrollContainerRef.current) {
+              const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+              setIsAtBottom(scrollTop + clientHeight >= scrollHeight - 50);
+            }
+          }}
+          className="fixed inset-0 bg-black/99 overflow-y-auto pt-16 md:pt-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        >
+          <div className="px-4 md:px-12 lg:px-86 py-4 md:py-20 " onClick={closeViewer}>
+            <div className="flex flex-row justify-between items-center w-full">
+              <h1 className="text-white text-xl md:text-4xl font-bold"> {selectedItem.title} </h1>
+              <button
+                type="button"
+                className="bg-white text-black px-6 py-2 rounded-full font-bold text-sm hover:scale-105 transition-transform uppercase"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeViewer();
+                }}
+              >
+                Back
+              </button>
+            </div>
             <h1 className="text-white text-sm md:text-xl font-extralight mt-2"> {selectedItem.description} </h1>
             <h1 className="text-white text-xs md:text-lg mt-2 font-extralight"> {selectedItem.madeIn} </h1>
 
@@ -285,6 +323,34 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               ))}
             </div>
           </div>
+
+          <AnimatePresence>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.3 }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (scrollContainerRef.current) {
+                  if (isAtBottom) {
+                    scrollContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
+                  } else {
+                    scrollContainerRef.current.scrollBy({ top: window.innerHeight * 0.5, behavior: "smooth" });
+                  }
+                }
+              }}
+              className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-white text-black p-4 rounded-full shadow-2xl flex items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors"
+            >
+              <motion.div
+                key={isAtBottom ? "up" : "down"}
+                animate={{ y: [0, 4, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              >
+                {isAtBottom ? <FaArrowUp size={24} /> : <FaArrowDown size={24} />}
+              </motion.div>
+            </motion.button>
+          </AnimatePresence>
         </div>
       )
       }

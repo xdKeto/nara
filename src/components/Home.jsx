@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaArrowDown } from "react-icons/fa";
 import { useFetchData } from "../hooks/FetchData";
 import { getStrapiURL } from "../utils/api";
 
@@ -35,6 +36,38 @@ const Home = ({ onOpenCategory }) => {
       setHeroReady(true);
     }
   }, [homePageData]);
+
+  const [showFloatingButton, setShowFloatingButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const categoriesSection = document.getElementById("home-categories");
+      if (!categoriesSection) return;
+
+      const rect = categoriesSection.getBoundingClientRect();
+      const inSight = rect.top < window.innerHeight; // Categories are entering or in view
+      
+      const scrollPosition = window.scrollY + window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
+      const isBottom = scrollPosition >= docHeight - 50; // Near bottom
+
+      // Show if categories in sight AND not at bottom
+      // Also ensure we are past the very top of the hero if that's implied, 
+      // but "appears when list of categories is in sight" is the main condition.
+      // And "doesnt appear in the hero section" implies if we are strictly looking at hero (which implies rect.top > window.innerHeight usually, unless hero is very short).
+      // If hero is fully in view, rect.top is roughly window.innerHeight.
+      
+      if (inSight && !isBottom) {
+        setShowFloatingButton(true);
+      } else {
+        setShowFloatingButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on mount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   if (error) {
     return (
@@ -98,6 +131,26 @@ const Home = ({ onOpenCategory }) => {
           ))}
         </div>
       </div>
+
+      <AnimatePresence>
+        {showFloatingButton && (
+          <motion.button
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.3 }}
+            onClick={() => window.scrollBy({ top: window.innerHeight * 0.5, behavior: "smooth" })}
+            className="hidden md:flex fixed bottom-12 left-1/2 -translate-x-1/2 z-50 bg-white text-black p-4 rounded-full shadow-2xl items-center justify-center cursor-pointer hover:bg-gray-100 transition-colors"
+          >
+            <motion.div
+              animate={{ y: [0, 4, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            >
+              <FaArrowDown size={24} />
+            </motion.div>
+          </motion.button>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
