@@ -29,6 +29,42 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   const scrollContainerRef = useRef(null);
   const [isAtBottom, setIsAtBottom] = useState(false);
 
+  const images = (sourceCategory?.detailPage?.images || []).map((img) => ({
+    title: img.title,
+    description: img.description,
+    madeIn: img.madeIn,
+    mainImage: getStrapiURL(img?.thumbnail?.url),
+    carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
+    scroll: img.scroll
+  }));
+
+  // Handle URL-based viewer navigation
+  useEffect(() => {
+    const handlePopState = (event) => {
+      const state = event.state || {};
+      
+      // Check if we're closing the viewer
+      if (!state.viewerImageIndex && viewerOpen) {
+        closeViewerWithoutHistory();
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    // Initialize viewer from URL on mount
+    const params = new URLSearchParams(window.location.search);
+    const imageIndex = params.get("image");
+
+    if (imageIndex !== null && images.length > 0) {
+      const index = parseInt(imageIndex);
+      if (index >= 0 && index < images.length) {
+        openViewerWithoutHistory(images[index], index);
+      }
+    }
+
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [viewerOpen]); // Only depend on viewerOpen to avoid infinite loops
+
   useEffect(() => {
     if (viewerOpen && thumbnailContainerRef.current && thumbnailRefs.current[activeImageIndex]) {
       const container = thumbnailContainerRef.current;
@@ -61,16 +97,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     );
   }
 
-  const images = (sourceCategory?.detailPage?.images || []).map((img) => ({
-    title: img.title,
-    description: img.description,
-    madeIn: img.madeIn,
-    mainImage: getStrapiURL(img?.thumbnail?.url),
-    carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
-    scroll: img.scroll
-  }));
-
-  const openViewer = (item) => {
+  // Helper to open viewer without adding to history (used when initializing from URL)
+  const openViewerWithoutHistory = (item, imageIndex) => {
     if (item.scroll) {
       setIsScroll(true);
     }
@@ -80,11 +108,33 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     setIsAtBottom(false);
   };
 
-  const closeViewer = () => {
+  const openViewer = (item, imageIndex) => {
+    // Update URL with image index
+    const params = new URLSearchParams(window.location.search);
+    params.set("image", imageIndex);
+    const url = `${window.location.pathname}?${params.toString()}`;
+    window.history.pushState({ viewerImageIndex: imageIndex }, "", url);
+
+    if (item.scroll) {
+      setIsScroll(true);
+    }
+    setSelectedItem(item);
+    setActiveImageIndex(0);
+    setViewerOpen(true);
+    setIsAtBottom(false);
+  };
+
+  // Helper to close viewer without affecting history (used by popstate handler)
+  const closeViewerWithoutHistory = () => {
     setIsScroll(false);
     setViewerOpen(false);
     setSelectedItem(null);
     setActiveImageIndex(0);
+  };
+
+  const closeViewer = () => {
+    // Go back in history to remove the viewer URL
+    window.history.back();
   };
 
   const nextImage = (e) => {
@@ -138,7 +188,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                 loading="lazy"
                 alt={group[0].title}
                 className="object-cover w-full rounded-xl h-[200px] md:h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                onClick={() => openViewer(group[0])}
+                onClick={() => openViewer(group[0], gi * 6 + 0)}
               />
               <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[0].title}</h1>
             </div>
@@ -153,7 +203,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     loading="lazy"
                     alt={group[1].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                    onClick={() => openViewer(group[1])}
+                    onClick={() => openViewer(group[1], gi * 6 + 1)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[1].title}</h1>
                 </div>
@@ -168,7 +218,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     loading="lazy"
                     alt={group[2].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                    onClick={() => openViewer(group[2])}
+                    onClick={() => openViewer(group[2], gi * 6 + 2)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[2].title}</h1>
                 </div>
@@ -183,7 +233,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     loading="lazy"
                     alt={group[3].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                    onClick={() => openViewer(group[3])}
+                    onClick={() => openViewer(group[3], gi * 6 + 3)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[3].title}</h1>
                 </div>
@@ -198,7 +248,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     loading="lazy"
                     alt={group[4].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                    onClick={() => openViewer(group[4])}
+                    onClick={() => openViewer(group[4], gi * 6 + 4)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[4].title}</h1>
                 </div>
@@ -213,7 +263,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     loading="lazy"
                     alt={group[5].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
-                    onClick={() => openViewer(group[5])}
+                    onClick={() => openViewer(group[5], gi * 6 + 5)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[5].title}</h1>
                 </div>
@@ -311,7 +361,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             <h1 className="text-white text-xs md:text-lg mt-2 font-extralight"> {selectedItem.madeIn} </h1>
 
             {/* photo viewer */}
-            <div className="flex flex-col mt-2 pb-20">
+            <div className="flex flex-col mt-2 pb-20 md:pb-0">
               {selectedItem.carousel.map((image, index) => (
                 <img
                   key={index}
