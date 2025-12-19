@@ -445,26 +445,25 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             {/* photo viewer */}
             <div className="flex flex-col mt-2 pb-20 md:pb-0">
               {selectedItem.carousel.map((media, index) => (
-                <div key={index} className="w-full">
-                  {isVideo(media) ? (
-                    <video
-                      src={media}
-                      controls
-                      controlsList="nodownload"
-                      loop
-                      className="w-full object-contain mb-0"
-                      style={{ aspectRatio: '16/9' }}
-                      onClick={(e) => e.stopPropagation()}
-                    />
-                  ) : (
-                    <img
-                      src={media}
-                      alt={`${selectedItem.title} - Image ${index + 1}`}
-                      className="w-full object-contain mb-0"
-                      onClick={(e) => e.stopPropagation()}
-                    />
-                  )}
-                </div>
+                isVideo(media) ? (
+                  <video
+                    key={index}
+                    src={media}
+                    controls
+                    controlsList="nodownload"
+                    loop
+                    className="w-full block"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                ) : (
+                  <img
+                    key={index}
+                    src={media}
+                    alt={`${selectedItem.title} - Image ${index + 1}`}
+                    className="w-full block"
+                    onClick={(e) => e.stopPropagation()}
+                  />
+                )
               ))}
             </div>
           </div>
