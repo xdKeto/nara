@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { getStrapiURL } from "../utils/api";
 import { useFetchData } from "../hooks/FetchData";
+import ReactPlayer from "react-player";
 
 const HomeCategories = ({ category, setCurrentPage }) => {
   useEffect(() => {
@@ -28,6 +29,20 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   const thumbnailRefs = useRef([]);
   const scrollContainerRef = useRef(null);
   const [isAtBottom, setIsAtBottom] = useState(false);
+
+  // Helper function to detect if a URL is a video
+  const isVideo = (url) => {
+    // console.log(url);
+    if (!url) return false;
+    const videoExtensions = ['.mp4', '.webm', '.ogg', '.mov', '.avi', '.mkv', '.m4v'];
+    const lowerUrl = url.toLowerCase();
+    // Check for video file extensions
+    if (videoExtensions.some(ext => lowerUrl.includes(ext))) return true;
+    // Check for video hosting platforms
+    if (lowerUrl.includes('youtube.com') || lowerUrl.includes('youtu.be') || 
+        lowerUrl.includes('vimeo.com') || lowerUrl.includes('dailymotion.com')) return true;
+    return false;
+  };
 
   const images = (sourceCategory?.detailPage?.images || []).map((img) => ({
     title: img.title,
@@ -194,8 +209,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             </div>
           )}
 
+
           <div className="grid grid-cols-12 gap-2 md:gap-4">
-            <div className="col-span-4">
+            {/* Row 1: group[1] and group[2] - if only one exists, make it full width */}
+            <div className={group[1] && group[2] ? "col-span-4" : "col-span-12"}>
               {group[1] && (
                 <div>
                   <img
@@ -210,8 +227,26 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               )}
             </div>
 
-            <div className="col-span-8">
-              {group[2] && (
+            {group[1] && group[2] && (
+              <div className="col-span-8">
+                {group[2] && (
+                  <div>
+                    <img
+                      src={group[2].mainImage}
+                      loading="lazy"
+                      alt={group[2].title}
+                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                      onClick={() => openViewer(group[2], gi * 6 + 2)}
+                    />
+                    <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[2].title}</h1>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* If group[1] doesn't exist but group[2] does, show group[2] full width */}
+            {!group[1] && group[2] && (
+              <div className="col-span-12">
                 <div>
                   <img
                     src={group[2].mainImage}
@@ -220,11 +255,12 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[2], gi * 6 + 2)}
                   />
-                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[2].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[2].title}</h1>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
 
+            {/* Row 2: group[3] - always full width */}
             <div className="col-span-12">
               {group[3] && (
                 <div>
@@ -240,7 +276,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               )}
             </div>
 
-            <div className="col-span-8">
+            {/* Row 3: group[4] and group[5] - if only one exists, make it full width */}
+            <div className={group[4] && group[5] ? "col-span-8" : "col-span-12"}>
               {group[4] && (
                 <div>
                   <img
@@ -255,8 +292,26 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               )}
             </div>
 
-            <div className="col-span-4">
-              {group[5] && (
+            {group[4] && group[5] && (
+              <div className="col-span-4">
+                {group[5] && (
+                  <div>
+                    <img
+                      src={group[5].mainImage}
+                      loading="lazy"
+                      alt={group[5].title}
+                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                      onClick={() => openViewer(group[5], gi * 6 + 5)}
+                    />
+                    <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[5].title}</h1>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* If group[4] doesn't exist but group[5] does, show group[5] full width */}
+            {!group[4] && group[5] && (
+              <div className="col-span-12">
                 <div>
                   <img
                     src={group[5].mainImage}
@@ -265,10 +320,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[5], gi * 6 + 5)}
                   />
-                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[5].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[5].title}</h1>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -300,25 +355,52 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   &#8249;
                 </button>
                 <div className="flex flex-col items-center ">
-                  <img
-                    src={selectedItem.carousel[activeImageIndex]}
-                    alt="Full View"
-                    className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
-                    onClick={(e) => e.stopPropagation()}
-                  />
+                  {isVideo(selectedItem.carousel[activeImageIndex]) ? (
+                    <video
+                      src={selectedItem.carousel[activeImageIndex]}
+                      controls
+                      controlsList="nodownload"
+                      loop
+                      className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
+                      style={{ maxHeight: '56vh' }}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  ) : (
+                    <img
+                      src={selectedItem.carousel[activeImageIndex]}
+                      alt="Full View"
+                      className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  )}
                   <div ref={thumbnailContainerRef} className="hidden md:flex md:flex-row gap-2 mt-2 overflow-x-auto py-2 scrollbar-hide max-w-[680px]">
                     {selectedItem.carousel.map((thumb, index) => (
-                      <img
+                      <div
                         key={index}
                         ref={(el) => (thumbnailRefs.current[index] = el)}
-                        src={thumb}
-                        alt={`Thumbnail ${index + 1}`}
-                        className={`w-32 h-16 object-cover rounded-md cursor-pointer border-2 flex-shrink-0 ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
+                        className={`w-32 h-16 rounded-md cursor-pointer border-2 flex-shrink-0 overflow-hidden ${activeImageIndex === index ? "border-white" : "border-transparent"}`}
                         onClick={(e) => {
                           e.stopPropagation();
                           setActiveImageIndex(index);
                         }}
-                      />
+                      >
+                        {isVideo(thumb) ? (
+                          <ReactPlayer
+                            url={thumb}
+                            width="100%"
+                            height="100%"
+                            light
+                            className="object-cover"
+                            style={{ pointerEvents: 'none' }}
+                          />
+                        ) : (
+                          <img
+                            src={thumb}
+                            alt={`Thumbnail ${index + 1}`}
+                            className="w-full h-full object-cover"
+                          />
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
@@ -362,14 +444,27 @@ const HomeCategories = ({ category, setCurrentPage }) => {
 
             {/* photo viewer */}
             <div className="flex flex-col mt-2 pb-20 md:pb-0">
-              {selectedItem.carousel.map((image, index) => (
-                <img
-                  key={index}
-                  src={image}
-                  alt={`${selectedItem.title} - Image ${index + 1}`}
-                  className="w-full object-contain mb-0"
-                  onClick={(e) => e.stopPropagation()}
-                />
+              {selectedItem.carousel.map((media, index) => (
+                <div key={index} className="w-full">
+                  {isVideo(media) ? (
+                    <video
+                      src={media}
+                      controls
+                      controlsList="nodownload"
+                      loop
+                      className="w-full object-contain mb-0"
+                      style={{ aspectRatio: '16/9' }}
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  ) : (
+                    <img
+                      src={media}
+                      alt={`${selectedItem.title} - Image ${index + 1}`}
+                      className="w-full object-contain mb-0"
+                      onClick={(e) => e.stopPropagation()}
+                    />
+                  )}
+                </div>
               ))}
             </div>
           </div>
