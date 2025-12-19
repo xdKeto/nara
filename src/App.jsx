@@ -95,7 +95,7 @@ function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelected
     <>
       <Snowfall
         color="#dee4fd"
-        snowflakeCount={200}
+        snowflakeCount={100}
         style={{
           position: 'fixed',
           width: '100vw',
