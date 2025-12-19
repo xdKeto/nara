@@ -130,21 +130,21 @@ const HomeCategories = ({ category, setCurrentPage }) => {
 
       {/* pattern for the category images (dynamic data, same grid pattern) */}
       {groups.map((group, gi) => (
-        <div key={gi} className="mx-auto space-y-4 px-8">
+        <div key={gi} className="mx-auto space-y-2 md:space-y-4 px-4 md:px-8">
           {group[0] && (
             <div>
               <img
                 src={group[0].mainImage}
                 loading="lazy"
                 alt={group[0].title}
-                className="object-cover w-full rounded-xl h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                className="object-cover w-full rounded-xl h-[200px] md:h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                 onClick={() => openViewer(group[0])}
               />
-              <h1 className="text-black font-semibold text-xl md:text-2xl">{group[0].title}</h1>
+              <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[0].title}</h1>
             </div>
           )}
 
-          <div className="grid grid-cols-12 gap-4">
+          <div className="grid grid-cols-12 gap-2 md:gap-4">
             <div className="col-span-4">
               {group[1] && (
                 <div>
@@ -152,10 +152,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[1].mainImage}
                     loading="lazy"
                     alt={group[1].title}
-                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[1])}
                   />
-                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[1].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[1].title}</h1>
                 </div>
               )}
             </div>
@@ -167,10 +167,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[2].mainImage}
                     loading="lazy"
                     alt={group[2].title}
-                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[2])}
                   />
-                  <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[2].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[2].title}</h1>
                 </div>
               )}
             </div>
@@ -182,10 +182,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[3].mainImage}
                     loading="lazy"
                     alt={group[3].title}
-                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[3])}
                   />
-                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[3].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[3].title}</h1>
                 </div>
               )}
             </div>
@@ -197,10 +197,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[4].mainImage}
                     loading="lazy"
                     alt={group[4].title}
-                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[4])}
                   />
-                  <h1 className="text-black font-semibold text-xl md:text-2xl">{group[4].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[4].title}</h1>
                 </div>
               )}
             </div>
@@ -212,10 +212,10 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     src={group[5].mainImage}
                     loading="lazy"
                     alt={group[5].title}
-                    className="object-cover rounded-xl w-full h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[5])}
                   />
-                  <h1 className="text-black font-semibold text-xl md:text-2xl text-end">{group[5].title}</h1>
+                  <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[5].title}</h1>
                 </div>
               )}
             </div>
@@ -311,7 +311,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             <h1 className="text-white text-xs md:text-lg mt-2 font-extralight"> {selectedItem.madeIn} </h1>
 
             {/* photo viewer */}
-            <div className="flex flex-col mt-2">
+            <div className="flex flex-col mt-2 pb-20">
               {selectedItem.carousel.map((image, index) => (
                 <img
                   key={index}
