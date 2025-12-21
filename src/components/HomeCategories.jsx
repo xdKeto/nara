@@ -275,7 +275,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               <LazyMedia
                 src={group[0].mainImage}
                 alt={group[0].title}
-                className="object-cover w-full rounded-xl h-[200px] md:h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                className="object-cover w-full rounded-xl h-[200px] md:h-[500px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                 onClick={() => openViewer(group[0], gi * 6 + 0)}
               />
               <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[0].title}</h1>
@@ -291,7 +291,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   <LazyMedia
                     src={group[1].mainImage}
                     alt={group[1].title}
-                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                     onClick={() => openViewer(group[1], gi * 6 + 1)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[1].title}</h1>
@@ -306,7 +306,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     <LazyMedia
                       src={group[2].mainImage}
                       alt={group[2].title}
-                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                       onClick={() => openViewer(group[2], gi * 6 + 2)}
                     />
                     <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[2].title}</h1>
@@ -322,7 +322,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   <LazyMedia
                     src={group[2].mainImage}
                     alt={group[2].title}
-                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                     onClick={() => openViewer(group[2], gi * 6 + 2)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[2].title}</h1>
@@ -337,7 +337,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   <LazyMedia
                     src={group[3].mainImage}
                     alt={group[3].title}
-                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                     onClick={() => openViewer(group[3], gi * 6 + 3)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[3].title}</h1>
@@ -352,7 +352,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   <LazyMedia
                     src={group[4].mainImage}
                     alt={group[4].title}
-                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                     onClick={() => openViewer(group[4], gi * 6 + 4)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[4].title}</h1>
@@ -367,7 +367,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     <LazyMedia
                       src={group[5].mainImage}
                       alt={group[5].title}
-                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                      className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                       onClick={() => openViewer(group[5], gi * 6 + 5)}
                     />
                     <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl text-end">{group[5].title}</h1>
@@ -383,7 +383,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                   <LazyMedia
                     src={group[5].mainImage}
                     alt={group[5].title}
-                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
+                    className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-101 will-change-transform"
                     onClick={() => openViewer(group[5], gi * 6 + 5)}
                   />
                   <h1 className="text-black font-semibold text-sm md:text-xl lg:text-2xl">{group[5].title}</h1>
