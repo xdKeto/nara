@@ -29,6 +29,15 @@ const HomeCategories = ({ category, setCurrentPage }) => {
   const thumbnailRefs = useRef([]);
   const scrollContainerRef = useRef(null);
   const [isAtBottom, setIsAtBottom] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Helper function to detect if a URL is a video
   const isVideo = (url) => {
@@ -44,14 +53,20 @@ const HomeCategories = ({ category, setCurrentPage }) => {
     return false;
   };
 
-  const images = (sourceCategory?.detailPage?.images || []).map((img) => ({
-    title: img.title,
-    description: img.description,
-    madeIn: img.madeIn,
-    mainImage: getStrapiURL(img?.thumbnail?.url),
-    carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
-    scroll: img.scroll
-  }));
+  const images = (sourceCategory?.detailPage?.images || []).map((img) => {
+    // Use mobile_thumbnail if on mobile and it exists, otherwise fall back to regular thumbnail
+    const thumbnailUrl = isMobile && img?.mobile_thumbnail?.url 
+      ? img.mobile_thumbnail.url 
+      : img?.thumbnail?.url;
+    return {
+      title: img.title,
+      description: img.description,
+      madeIn: img.madeIn,
+      mainImage: getStrapiURL(thumbnailUrl),
+      carousel: (img?.carouselImage || []).map((c) => getStrapiURL(c.url)),
+      scroll: img.scroll
+    };
+  });
 
   // Handle URL-based viewer navigation
   useEffect(() => {

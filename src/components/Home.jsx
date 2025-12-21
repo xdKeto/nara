@@ -28,6 +28,7 @@ const imageVariants = {
 const Home = ({ onOpenCategory }) => {
   const { data, loading: fetchLoading, error } = useFetchData();
   const [heroReady, setHeroReady] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const homePageData = data?.homePage || null;
 
@@ -36,6 +37,14 @@ const Home = ({ onOpenCategory }) => {
       setHeroReady(true);
     }
   }, [homePageData]);
+
+  // Detect mobile screen
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const [showFloatingButton, setShowFloatingButton] = useState(false);
 
@@ -121,7 +130,7 @@ const Home = ({ onOpenCategory }) => {
             >
               <div className="relative overflow-hidden bg-gray-500 h-[512px]">
 
-                {category.thumbnail?.[0]?.url && <img src={getStrapiURL(category.thumbnail[0].url)} alt={category.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 origin-center transform-gpu will-change-transform group-hover:scale-105" />}
+                {category.thumbnail?.[0]?.url && <img src={getStrapiURL(isMobile && category.mobile_thumbnail?.[0]?.url ? category.mobile_thumbnail[0].url : category.thumbnail[0].url)} alt={category.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 origin-center transform-gpu will-change-transform group-hover:scale-105" />}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className={`absolute bottom-4 ${index % 2 === 0 ? "right-6" : "left-6"}`}>
                   <h2 className="text-white text-3xl md:text-7xl font-extrabold tracking-tight drop-shadow-lg">{category.title}</h2>
