@@ -1,9 +1,68 @@
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { getStrapiURL } from "../utils/api";
 import { useFetchData } from "../hooks/FetchData";
 import ReactPlayer from "react-player";
+
+// Skeleton loading placeholder component
+const Skeleton = ({ className }) => (
+  <div className={`animate-pulse bg-gray-300 ${className}`} />
+);
+
+// Lazy loading media component using Intersection Observer
+const LazyMedia = ({ src, alt, className, onClick, isVideo: isVideoType }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '100px', threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`relative ${className}`} onClick={onClick}>
+      {/* Skeleton placeholder */}
+      {!isLoaded && (
+        <Skeleton className="absolute inset-0 rounded-xl" />
+      )}
+      {/* Actual media - only render when visible */}
+      {isVisible && (
+        isVideoType ? (
+          <video
+            src={src}
+            poster=""
+            preload="metadata"
+            className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+            onLoadedData={() => setIsLoaded(true)}
+          />
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+            onLoad={() => setIsLoaded(true)}
+          />
+        )
+      )}
+    </div>
+  );
+};
 
 const HomeCategories = ({ category, setCurrentPage }) => {
   useEffect(() => {
@@ -213,9 +272,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
         <div key={gi} className="mx-auto space-y-2 md:space-y-4 px-4 md:px-8">
           {group[0] && (
             <div>
-              <img
+              <LazyMedia
                 src={group[0].mainImage}
-                loading="lazy"
                 alt={group[0].title}
                 className="object-cover w-full rounded-xl h-[200px] md:h-[500px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                 onClick={() => openViewer(group[0], gi * 6 + 0)}
@@ -230,9 +288,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             <div className={group[1] && group[2] ? "col-span-4" : "col-span-12"}>
               {group[1] && (
                 <div>
-                  <img
+                  <LazyMedia
                     src={group[1].mainImage}
-                    loading="lazy"
                     alt={group[1].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[1], gi * 6 + 1)}
@@ -246,9 +303,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               <div className="col-span-8">
                 {group[2] && (
                   <div>
-                    <img
+                    <LazyMedia
                       src={group[2].mainImage}
-                      loading="lazy"
                       alt={group[2].title}
                       className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                       onClick={() => openViewer(group[2], gi * 6 + 2)}
@@ -263,9 +319,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             {!group[1] && group[2] && (
               <div className="col-span-12">
                 <div>
-                  <img
+                  <LazyMedia
                     src={group[2].mainImage}
-                    loading="lazy"
                     alt={group[2].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[2], gi * 6 + 2)}
@@ -279,9 +334,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             <div className="col-span-12">
               {group[3] && (
                 <div>
-                  <img
+                  <LazyMedia
                     src={group[3].mainImage}
-                    loading="lazy"
                     alt={group[3].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[3], gi * 6 + 3)}
@@ -295,9 +349,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             <div className={group[4] && group[5] ? "col-span-8" : "col-span-12"}>
               {group[4] && (
                 <div>
-                  <img
+                  <LazyMedia
                     src={group[4].mainImage}
-                    loading="lazy"
                     alt={group[4].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[4], gi * 6 + 4)}
@@ -311,9 +364,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
               <div className="col-span-4">
                 {group[5] && (
                   <div>
-                    <img
+                    <LazyMedia
                       src={group[5].mainImage}
-                      loading="lazy"
                       alt={group[5].title}
                       className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                       onClick={() => openViewer(group[5], gi * 6 + 5)}
@@ -328,9 +380,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
             {!group[4] && group[5] && (
               <div className="col-span-12">
                 <div>
-                  <img
+                  <LazyMedia
                     src={group[5].mainImage}
-                    loading="lazy"
                     alt={group[5].title}
                     className="object-cover rounded-xl w-full h-[150px] md:h-[380px] cursor-pointer transition-transform hover:scale-102 will-change-transform"
                     onClick={() => openViewer(group[5], gi * 6 + 5)}
@@ -376,6 +427,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                       controls
                       controlsList="nodownload"
                       loop
+                      preload="metadata"
                       className="max-w-full lg:max-w-[100vh] max-h-[56vh] rounded-lg shadow-lg object-contain"
                       style={{ maxHeight: '56vh' }}
                       onClick={(e) => e.stopPropagation()}
@@ -467,6 +519,8 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     controls
                     controlsList="nodownload"
                     loop
+                    preload="none"
+                    poster=""
                     className="w-full block"
                     onClick={(e) => e.stopPropagation()}
                   />
