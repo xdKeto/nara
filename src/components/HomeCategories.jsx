@@ -519,8 +519,7 @@ const HomeCategories = ({ category, setCurrentPage }) => {
                     controls
                     controlsList="nodownload"
                     loop
-                    preload="none"
-                    poster=""
+                    preload="metadata"
                     className="w-full block"
                     onClick={(e) => e.stopPropagation()}
                   />
