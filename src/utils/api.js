@@ -27,7 +27,6 @@ export const useFetch = (endpoint) => {
         }
 
         const result = await response.json();
-        console.log(JSON.stringify(result, null, 2));
         setData(result.data);
       } catch (err) {
         setError(err.message);
