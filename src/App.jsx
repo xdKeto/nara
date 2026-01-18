@@ -10,7 +10,7 @@ import { FetchDataProvider } from "./hooks/FetchData";
 import HomeCategories from "./components/HomeCategories";
 import LoadingScreen from "./components/LoadingScreen";
 import { useFetchData } from "./hooks/FetchData";
-import Snowfall from "react-snowfall";
+// import Snowfall from "react-snowfall";
 
 function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelectedCategory }) {
   const { loading, data } = useFetchData();
@@ -93,7 +93,8 @@ function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelected
 
   return (
     <>
-      <Snowfall
+      {/* CHRISTMAS EDITION */}
+      {/* <Snowfall
         color="#dee4fd"
         snowflakeCount={100}
         style={{
@@ -103,7 +104,7 @@ function AppContent({ currentPage, setCurrentPage, selectedCategory, setSelected
           zIndex: 9999,
           pointerEvents: 'none'
         }}
-      />
+      />*/}
       <Analytics />
       <Navbar currentPage={currentPage} setCurrentPage={(page) => navigateToPage(page)} disabled={loading} />
       <div className="pb-16 min-h-screen bg-white antialiased overflow-x-hidden overflow-y-hidden mx-auto relative z-10 justify-items-center ">
