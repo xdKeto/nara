@@ -16,7 +16,7 @@ export const useFetch = (endpoint, options = {}) => {
   const [error, setError] = useState(null);
   const isMounted = useRef(true);
   
-  const { retries = 5, cacheTime = 3600000 } = options; // Default 1 hour cache
+  const { retries = 5, cacheTime = 31536000000 } = options; // Default 1 year cache
 
   useEffect(() => {
     isMounted.current = true;
